@@ -1,16 +1,17 @@
-CC = gcc #Le compilateur utilisé
-CFLAGS = -W -Wall -ansi -std=c99 #Les options de compilation
-LDFLAGS = #Les options de l'édition de lien
-EXEC = main #Les éxecutables à générer
-SRC = addition.c main.c #Liste des fichiers sources du projet
-DEPS = addition.h #Liste des fichiers d'en tête
-OBJ = $(SRC:.c=.o) #Liste des fichiers
+CC = gcc
+CFLAGS = -W -Wall -ansi -std=c99 -g
+LIBS = -L./SDL2_ttf/.libs
+LDFLAGS = `sdl2-config --libs` -lSDL2_ttf
+INCLUDES = `sdl2-config --cflags` -lSDL2_ttf
+EXEC = main
+SRC = main.c fonctions_SDL.c
+OBJ = $(SRC:.c=.o)
 
 all: $(EXEC)
 main: $(OBJ)
-	$(CC) -o $@ $^ $(LDFLAGS)
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $^ $(LIBS) $(LDFLAGS)
 %.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	$(CC) $(CFLAGS) -o $@ -c $<
 clean:
 	rm -rf *.o *~
 mrproper: clean
