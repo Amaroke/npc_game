@@ -1,8 +1,8 @@
 /**
  *\file fonctions_SDL.h
- *\brief Gestion de la bibliothèque SDL2.
+ *\brief Surcouche de la bibliothèque SDL2.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
- *\date 2 nov 2020
+ *\date 2 novembre 2020
 */
 
 #ifndef FONCTIONS_SDL_H
@@ -10,6 +10,15 @@
 
 #include <SDL2/SDL.h>
 
+/**
+ * \brief La fonction initialise la SDL et crée la fenêtre du jeu ainsi que le renderer.
+ * \param window la fenêtre du jeu.
+ * \param renderer le renderer.
+ * \param width largeur de l'écran de jeu.
+ * \param height hauteur de l'écran de jeu.
+ * \return -1 en cas d'erreur, 0 sinon
+*/
+int init_sdl(SDL_Window **window, SDL_Renderer **renderer, int width, int height);
 
 /**
  * \brief La fonction charge l'image à partir d'un fichier.

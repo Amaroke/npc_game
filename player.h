@@ -2,13 +2,17 @@
  *\file player.h
  *\brief Gestion du joueur.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
- *\date 2 nov 2020
+ *\date 2 novembre 2020
 */
 
-//déplacement haut bas gauche droite en 4 fonctions
+#ifndef PLAYER_H
+#define PLAYER_H
+
+#include "sprite.h"
 
 typedef struct player_s
 {
     sprite_t player;
-    
-}player_t;
+} player_t;
+
+#endif

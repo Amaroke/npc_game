@@ -2,7 +2,7 @@
  *\file ressources.c
  *\brief Gestion des ressources.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
- *\date 13 mai 2020
+ *\date 2 novembre 2020
 */
 
 #include "ressources.h"

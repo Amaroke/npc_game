@@ -2,11 +2,13 @@
  *\file ressources.h
  *\brief Bibliothèque de ressources.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
- *\date 02 nov 2020
+ *\date 2 novembre 2020
 */
 
 #ifndef RESSOURCES_H
 #define RESSOURCES_H
+
+#include <SDL2/SDL.h>
 
 /**
  *\struct texture_t
