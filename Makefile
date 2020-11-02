@@ -3,7 +3,9 @@ CFLAGS = -W -Wall -ansi -std=c99 -g
 LIBS = -L./SDL2_ttf/.libs
 LDFLAGS = `sdl2-config --libs` -lSDL2_ttf
 INCLUDES = `sdl2-config --cflags` -lSDL2_ttf
+#Nom de l'executable :
 EXEC = main
+#Modifier les sources :
 SRC = main.c fonctions_SDL.c
 OBJ = $(SRC:.c=.o)
 
@@ -16,3 +18,6 @@ clean:
 	rm -rf *.o *~
 mrproper: clean
 	rm -rf $(EXEC)
+doc: $(PROG)
+	doxygen ./$(PROG)
+	make -C latex
