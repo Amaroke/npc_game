@@ -9,6 +9,7 @@
 #define RESSOURCES_H
 
 #include <SDL2/SDL.h>
+#include "fonctions_SDL.h"
 
 /**
  *\struct texture_t

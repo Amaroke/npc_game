@@ -5,10 +5,15 @@
  *\date 02 nov 2020
 */
 
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  *\brief Programme principal qui implémente la boucle du jeu.
 */
-int main(int argc, char *args[])
+int main(int argc, char *argv[])
 {
+    (void) argc;
+    (void) argv;
+    return EXIT_SUCCESS;
 }

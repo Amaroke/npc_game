@@ -64,4 +64,10 @@ void clean_sdl(SDL_Renderer *renderer, SDL_Window *window);
 */
 void apply_texture(SDL_Texture *texture, SDL_Renderer *renderer, int x, int y);
 
+/**
+ * \brief La fonction nettoie une texture en mémoire
+ * \param texture la texture à nettoyer
+*/
+void clean_texture(SDL_Texture *texture);
+
 #endif

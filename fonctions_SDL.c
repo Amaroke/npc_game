@@ -77,3 +77,11 @@ void apply_texture(SDL_Texture *texture, SDL_Renderer *renderer, int x, int y)
 
     SDL_RenderCopy(renderer, texture, NULL, &dst);
 }
+
+void clean_texture(SDL_Texture *texture)
+{
+    if (NULL != texture)
+    {
+        SDL_DestroyTexture(texture);
+    }
+}

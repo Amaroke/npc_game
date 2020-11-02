@@ -14,7 +14,7 @@ void clean_ressources(ressources_t *ressources)
 
 void init_ressources(SDL_Renderer *renderer, ressources_t *ressources)
 {
-	//ressources->background = load_image("ressources/background.bmp", renderer);
+	ressources->background = charger_image("ressources/background.bmp", renderer, 0, 0, 0);
 }
 
 void apply_background(SDL_Renderer *renderer, ressources_t *ressources)
