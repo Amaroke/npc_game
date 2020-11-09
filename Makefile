@@ -15,7 +15,7 @@ main: $(OBJ)
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 clean:
-	rm -rf *.o *~
+	rm -rf *.o *~ $(EXEC)
 mrproper: clean
 	rm -rf $(EXEC)
 doc: $(PROG)
