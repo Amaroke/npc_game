@@ -8,6 +8,9 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef struct sprite_s
 {
     int x; /*!< Abscisses par rapport au centre de l'image.*/
@@ -27,5 +30,11 @@ typedef struct sprite_s
  *\param v La vitesse.
 */
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h, int v);
+
+/**
+ *\brief La fonction affiche les données d'un sprite dans le terminal.
+ *\param sprite Le sprite à afficher.
+*/
+void print_sprite_test(sprite_t *sprite);
 
 #endif
