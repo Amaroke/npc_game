@@ -17,8 +17,15 @@ typedef struct sprite_s
     int v; /*!< Vitesse de déplacement du sprite. */
 } sprite_t;
 
+/**
+ *\brief La fonction initialise un sprite.
+ *\param sprite Le sprite à initialiser.
+ *\param x L'abscisse.
+ *\param y L'ordonnée.
+ *\param w La largeur.
+ *\param h La hauteur.
+ *\param v La vitesse.
+*/
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h, int v);
-
-void print_sprite(sprite_t *sprite);
 
 #endif
