@@ -17,7 +17,8 @@
 */
 typedef struct ressources_s
 {
-	SDL_Texture	*background; /*!<Texture liée à l'image du sol.*/
+	SDL_Texture *background; /*!<Texture liée à l'image du sol.*/
+	SDL_Texture *player;	 /*!<Texture liée au joueur.*/
 } ressources_t;
 
 /**
