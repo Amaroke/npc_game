@@ -21,3 +21,6 @@ mrproper: clean
 doc: $(PROG)
 	doxygen ./$(PROG)
 	make -C latex
+push :
+	git push https://gitlab.univ-lorraine.fr/mathieus1u/projet_prog_avancee
+	git push https://github.com/Amaroke/projet_prog_avancee.git
