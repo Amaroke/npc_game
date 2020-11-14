@@ -34,11 +34,6 @@ void clean_ressources(ressources_t *ressources);
 */
 void init_ressources(SDL_Renderer *renderer, ressources_t *ressources);
 
-/**
- *\brief La fonction applique la texture du fond sur le renderer lié à l'écran de jeu.
- *\param renderer Le renderer.
- *\param ressources Les ressources du jeu.
-*/
-void apply_background(SDL_Renderer *renderer, ressources_t *ressources);
+
 
 #endif

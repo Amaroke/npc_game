@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct sprite_s
 {
@@ -18,6 +19,7 @@ typedef struct sprite_s
     int h; /*!< Hauteur du sprite. */
     int w; /*!< Largeur du sprite. */
     int v; /*!< Vitesse de déplacement du sprite. */
+    bool is_visible; /*!< Le sprite est visible ou non. */
 } sprite_t;
 
 /**
@@ -28,8 +30,9 @@ typedef struct sprite_s
  *\param w La largeur.
  *\param h La hauteur.
  *\param v La vitesse.
+ *\param is_visible La visibilité du sprite.
 */
-void init_sprite(sprite_t *sprite, int x, int y, int w, int h, int v);
+void init_sprite(sprite_t *sprite, int x, int y, int w, int h, int v, bool is_visible);
 
 /**
  *\brief La fonction affiche les données d'un sprite dans le terminal.

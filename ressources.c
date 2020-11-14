@@ -19,10 +19,3 @@ void init_ressources(SDL_Renderer *renderer, ressources_t *ressources)
 	ressources->player = charger_image("ressources/sprites/player/player.bmp", renderer, 0, 0, 0);
 }
 
-void apply_background(SDL_Renderer *renderer, ressources_t *ressources)
-{
-	if (ressources->background != NULL)
-	{
-		apply_texture(ressources->background, renderer, 0, 0);
-	}
-}

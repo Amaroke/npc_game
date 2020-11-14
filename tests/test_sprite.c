@@ -13,11 +13,11 @@ void test_init_sprite()
 {
     sprite_t *sprite_test;
     sprite_test = malloc(sizeof(sprite_t));
-    init_sprite(sprite_test, 0, 0, 0, 0, 0);
+    init_sprite(sprite_test, 0, 0, 0, 0, 0, true);
     print_sprite_test(sprite_test);
-    init_sprite(sprite_test, 1, 1, 1, 1, 1);
+    init_sprite(sprite_test, 1, 1, 1, 1, 1, false);
     print_sprite_test(sprite_test);
-    init_sprite(sprite_test, -50, 20, 10, 0, 1);
+    init_sprite(sprite_test, -50, 20, 10, 0, 1, false);
     print_sprite_test(sprite_test);
 }
 
