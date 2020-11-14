@@ -12,21 +12,30 @@ int init_sdl(SDL_Window **window, SDL_Renderer **renderer, int width, int height
     if (0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO))
     {
         fprintf(stderr, "Erreur initialisation de la SDL : %s", SDL_GetError());
-        return -1;
+        return EXIT_FAILURE;
     }
     if (0 != SDL_CreateWindowAndRenderer(width, height, SDL_WINDOW_SHOWN, window, renderer))
     {
         fprintf(stderr, "Erreur lors de la creation de l'image et du renderer : %s", SDL_GetError());
-        return -1;
+        return EXIT_FAILURE;
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
 
-SDL_Texture *charger_image(const char *nomfichier, SDL_Renderer *renderer, Uint8 r, Uint8 g, Uint8 b)
+void clean_sdl(SDL_Renderer *renderer, SDL_Window *window)
+{
+    if (NULL != renderer)
+        SDL_DestroyRenderer(renderer);
+    if (NULL != window)
+        SDL_DestroyWindow(window);
+    SDL_Quit();
+}
+
+SDL_Texture *load_picture(const char *file, SDL_Renderer *renderer, Uint8 r, Uint8 g, Uint8 b)
 {
     SDL_Surface *tmp = NULL;
     SDL_Texture *texture = NULL;
-    tmp = SDL_LoadBMP(nomfichier);
+    tmp = SDL_LoadBMP(file);
     if (NULL == tmp)
     {
         fprintf(stderr, "Erreur pendant le chargement de l'image BMP: %s", SDL_GetError());
@@ -56,15 +65,6 @@ void update_screen(SDL_Renderer *renderer)
 void pause(int time)
 {
     SDL_Delay(time);
-}
-
-void clean_sdl(SDL_Renderer *renderer, SDL_Window *window)
-{
-    if (NULL != renderer)
-        SDL_DestroyRenderer(renderer);
-    if (NULL != window)
-        SDL_DestroyWindow(window);
-    SDL_Quit();
 }
 
 void apply_texture(SDL_Texture *texture, SDL_Renderer *renderer, int x, int y)

@@ -1,6 +1,6 @@
 /**
  *\file ressources.h
- *\brief Bibliothèque de ressources.
+ *\brief Déclaration des ressources.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
  *\date 2 novembre 2020
 */
@@ -22,18 +22,16 @@ typedef struct ressources_s
 } ressources_t;
 
 /**
- *\brief La fonction nettoie les ressources.
- *\param ressources Les ressources.
-*/
-void clean_ressources(ressources_t *ressources);
-
-/**
  *\brief La fonction initialise les textures.
- *\param screen La surface correspondant à l'écran de jeu.
+ *\param renderer La surface correspondant à l'écran de jeu.
  *\param ressources Les ressources du jeu.
 */
 void init_ressources(SDL_Renderer *renderer, ressources_t *ressources);
 
-
+/**
+ *\brief La fonction nettoie les ressources.
+ *\param ressources Les ressources.
+*/
+void clean_ressources(ressources_t *ressources);
 
 #endif

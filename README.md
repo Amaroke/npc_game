@@ -45,3 +45,10 @@ int main(int argc, char *argv[]){
     clean(window, renderer, &ressources);
     return EXIT_SUCCESS;
 }
+
+
+
+void print_sprite_test(sprite_t *sprite)
+{
+    printf("x : %d, y : %d, w : %d, h : %d, v : %d, is_visible : %s\n", sprite->x, sprite->y, sprite->w, sprite->h, sprite->v, sprite->is_visible ? "true" : "false");
+}

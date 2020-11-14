@@ -1,6 +1,6 @@
 /**
  *\file joueur.h
- *\brief Gestion du joueur.
+ *\brief Déclaration du joueur.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
  *\date 2 novembre 2020
 */

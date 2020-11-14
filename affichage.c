@@ -21,16 +21,16 @@ void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources)
 
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite)
 {
-    if(sprite->is_visible == true)
+    if (sprite->is_visible == true)
     {
-        apply_texture(texture, renderer, 20,  20); // penser à diviser par 2
+        apply_texture(texture, renderer, 20, 20); //coordonnées+demi sprite
     }
 }
 
 void apply_background(SDL_Renderer *renderer, ressources_t *ressources)
 {
-	if (ressources->background != NULL)
-	{
-		apply_texture(ressources->background, renderer, 0, 0);
-	}
+    if (ressources->background != NULL)
+    {
+        apply_texture(ressources->background, renderer, 0, 0);
+    }
 }
