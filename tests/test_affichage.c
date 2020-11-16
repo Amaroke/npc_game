@@ -15,7 +15,7 @@ void test_apply_sprite()
 
 void test_apply_background()
 {
-}
+}fff
 
 /**
  *\brief Programme principal qui effectue les tests de affichage.
