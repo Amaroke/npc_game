@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     int choix = 0;
     while (choix != 1 || choix != 2 || choix != 3)
     {
-        printf("Menu test affichhage\n1 : aplliquer un sprite\n2 : appliquer un fond\n3: Quitter\n");
+        printf("Menu test affichage\n1 : Appliquer un sprite.\n2 : Appliquer un fond.\n3 : Quitter.\n");
         printf(">>>");
         scanf("%i", &choix);
         getchar();
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
             break;
 
         default:
-            printf("Choix invalide");
+            printf("Choix invalide !");
             choix = 0;
             break;
         }
