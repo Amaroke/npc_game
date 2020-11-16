@@ -56,3 +56,4 @@ int main(int argc, char *argv[])
     test_apply_sprite();
     test_apply_background();
     return EXIT_SUCCESS;
+}
