@@ -18,7 +18,7 @@ void test_init_sprite()
     if (sprite_test->x != 0 && sprite_test->y != 0 && sprite_test->w != 0 && sprite_test->h != 0 && sprite_test->s != 0 && sprite_test->is_visible != false) {
         printf("Il y a un problème, lors de l'initialisation d'un sprite avec comme paramètres : x=0, y=0, w=0, h=0, s=0, is_visible=false");
     }
-}
+}ss
 
 /**
  *\brief Programme principal qui effectue les tests de sprite.
