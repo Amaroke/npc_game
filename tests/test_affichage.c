@@ -28,6 +28,8 @@ void test_apply_sprite()
 
     apply_sprite(renderer, texture, sprite);
     update_screen(renderer);
+    pause(1000);
+    clean(window, renderer, &ressources);
 }
 
 void test_apply_background()
@@ -43,6 +45,8 @@ void test_apply_background()
 
     apply_background(renderer, &ressources);
     update_screen(renderer);
+    pause(1000);
+    clean(window, renderer, &ressources);
 }
 
 /**
@@ -50,8 +54,35 @@ void test_apply_background()
 */
 int main(int argc, char *argv[])
 {
+    int choix = 0;
+    while (choix != 1 || choix != 2 || choix != 3)
+    {
+        printf("Menu test affichhage\n1 : aplliquer un sprite\n2 : appliquer un fond\n3: Quitter\n");
+        printf(">>>");
+        scanf("%i", &choix);
+        getchar();
 
-    test_apply_sprite();
-    test_apply_background();
+        switch (choix)
+        {
+        case 1:
+            test_apply_sprite();
+            choix = 0;
+            break;
+
+        case 2:
+            test_apply_background();
+            choix = 0;
+            break;
+        case 3:
+            return EXIT_SUCCESS;
+            break;
+
+        default:
+            printf("Choix invalide");
+            choix = 0;
+            break;
+        }
+    }
+
     return EXIT_SUCCESS;
 }
