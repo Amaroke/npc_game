@@ -11,6 +11,8 @@
 
 void test_init_sprite()
 {
+    sprite_t sprite;
+    
 }
 
 /**
