@@ -28,7 +28,6 @@ void test_apply_sprite()
 
     apply_sprite(renderer, texture, sprite);
     update_screen(renderer);
-
 }
 
 void test_apply_background()
@@ -37,7 +36,6 @@ void test_apply_background()
     SDL_Window *window;
     ressources_t ressources;
     sprite_t *sprite;
-
 
     sprite = malloc(sizeof(sprite_t));
     init(&window, &renderer, &ressources);
