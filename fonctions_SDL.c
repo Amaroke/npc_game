@@ -70,7 +70,7 @@ void pause(int time)
 void apply_texture(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect dst)
 {
     SDL_QueryTexture(texture, NULL, NULL, &dst.w, &dst.h);
-    SDL_Rect homee = {16, 0, 16, 32};
+    SDL_Rect homee = {16, 64, 16, 32};
     SDL_RenderCopy(renderer, texture, &homee, &dst);
 }
 
