@@ -11,6 +11,6 @@
 #include <SDL2/SDL.h>
 #include "joueur.h"
 
-void input_player(SDL_EVENT *event, player_t *player);
+void input_player(SDL_Event *event, player_t *player);
 
 #endif
