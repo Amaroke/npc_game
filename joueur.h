@@ -11,25 +11,33 @@
 //Constantes
 
 #define MOVING_STEP 10
+#define ORIENTATION_DOWN 0
+#define ORIENTATION_UP  1
+#define ORIENTATION_LEFT  2
+#define ORIENTATION_RIGHT  3
 
+#include <SDL2/SDL.h>
 #include "sprite.h"
 
 typedef struct player_s
 {
     sprite_t player;
-    int x;           /*!< Abscisses par rapport au centre de l'image.*/
-    int y;           /*!< Ordonnée par rapport au centre de l'image. */
-    int s;           /*!< Vitesse de déplacement du sprite. */
+    int orientation;
 } player_t;
 
 /**
  *\brief La fonction initialise le player.
  *\param player Le player à initialiser.
- *\param x L'abscisse.
- *\param y L'ordonnée.
- *\param s La vitesse.
+ *\param orientation
 */
-void init_player(player_t *player, int x, int y, int s);
+void init_player(player_t *player, int orientation);
+
+/**
+ *\brief La fonction gère les entrées clavier pour le joueur.
+ *\param event Les évènements claviers.
+ *\param player Le joueur.
+*/
+void input_player(SDL_Event *event, player_t *player);
 
 /**
  *\brief La fonction permet au joueur de se déplacer vers la gauche.
