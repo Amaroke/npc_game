@@ -39,7 +39,7 @@ void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources)
  *\param texture La texture du sprite.
  *\param sprite Le sprite.
 */
-void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite);
+void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite, SDL_Rect dst);
 
 /**
  *\brief La fonction applique la texture du fond sur le renderer lié l'affichage lié à l'écran de jeu.

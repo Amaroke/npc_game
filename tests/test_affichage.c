@@ -18,15 +18,16 @@ void test_apply_sprite()
     SDL_Renderer *renderer;
     SDL_Window *window;
     SDL_Texture *texture;
+    SDL_Rect dst = {16, 0, 16, 32};
     ressources_t ressources;
     sprite_t *sprite;
 
     sprite = malloc(sizeof(sprite_t));
     init(&window, &renderer, &ressources);
-    texture = load_picture("ressources/sprites/sprite_test.bmp", renderer, 0, 0, 0);
+    texture = load_picture("ressources/sprites/player/NPC_test.bmp", renderer, 0, 0, 0);
     init_sprite(sprite, 1, 1, 10, 10, 1, true);
 
-    apply_sprite(renderer, texture, sprite);
+    apply_sprite(renderer, texture, sprite, dst);
     update_screen(renderer);
     pause(1000);
     clean(window, renderer, &ressources);

@@ -7,53 +7,45 @@
 
 #include "joueur.h"
 
+
+
+SDL_Rect array_sprite_down[NB_ANIMATIONS] = {{0, 0, 16, 32}, {16, 0, 16, 32}, {32, 0, 16, 32}, {48, 0, 16, 32}};
+SDL_Rect array_sprite_right[NB_ANIMATIONS] = {{0, 32, 16, 32}, {16, 32, 16, 32}, {32, 32, 16, 32}, {48, 32, 16, 32}};
+SDL_Rect array_sprite_up[NB_ANIMATIONS] = {{0, 64, 16, 32}, {16, 64, 16, 32}, {32, 64, 16, 32}, {48, 64, 16, 32}};
+SDL_Rect array_sprite_left[NB_ANIMATIONS] = {{0, 96, 16, 32}, {16, 96, 16, 32}, {32, 96, 16, 32}, {48, 96, 16, 32}};
+
+
+
 void init_player(player_t *player, int orientation)
 {
     player->orientation = orientation;
 }
 
 void input_player(SDL_Event *event, player_t *player) {
-    Uint8 *keystates;
+    
     while (SDL_PollEvent(event))
 	{
 		if (event->type == SDL_KEYDOWN)
 		{
 			if (event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d)
 			{
-				move_right(player);
+				player->sprite.x += MOVING_STEP;
+                
+
 			}
             if (event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q)
 			{
-				move_left(player);
+				player->sprite.x -= MOVING_STEP;
 			}
             if (event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s)
 			{
-				move_down(player);
+				player->sprite.y += MOVING_STEP;
 			}
             if (event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z)
 			{
-				move_up(player);
+				player->sprite.y -= MOVING_STEP;
 			}
         }
     }
 }
 
-void move_left(player_t *player)
-{
-    player->x -= MOVING_STEP;
-}
-
-void move_right(player_t *player)
-{
-    player->x += MOVING_STEP;
-}
-
-void move_up(player_t *player)
-{
-    player->y += MOVING_STEP;
-}
-
-void move_down(player_t *player)
-{
-    player->y -= MOVING_STEP;
-}

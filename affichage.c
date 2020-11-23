@@ -19,11 +19,11 @@ void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources)
     clean_ressources(ressources);
 }
 
-void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite)
+void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite, SDL_Rect dst)
 {
     if (sprite->is_visible == true)
     {
-        apply_texture(texture, renderer, 20, 20); //coordonnées+demi sprite
+        apply_texture(texture, renderer, dst); //coordonnées+demi sprite
     }
 }
 
@@ -31,6 +31,7 @@ void apply_background(SDL_Renderer *renderer, ressources_t *ressources)
 {
     if (ressources->background != NULL)
     {
-        apply_texture(ressources->background, renderer, 0, 0);
+        SDL_Rect dst = {0, 0, 0, 0};
+        apply_texture(ressources->background, renderer, dst);
     }
 }

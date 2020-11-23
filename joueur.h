@@ -15,13 +15,15 @@
 #define ORIENTATION_UP  1
 #define ORIENTATION_LEFT  2
 #define ORIENTATION_RIGHT  3
+#define NB_ANIMATIONS 4
 
 #include <SDL2/SDL.h>
 #include "sprite.h"
 
+
 typedef struct player_s
 {
-    sprite_t player;
+    sprite_t sprite;
     int orientation;
 } player_t;
 
@@ -38,25 +40,5 @@ void init_player(player_t *player, int orientation);
  *\param player Le joueur.
 */
 void input_player(SDL_Event *event, player_t *player);
-
-/**
- *\brief La fonction permet au joueur de se déplacer vers la gauche.
-*/
-void move_left(player_t *player);
-
-/**
- *\brief La fonction permet au joueur de se déplacer vers la droite.
-*/
-void move_right(player_t *player);
-
-/**
- *\brief La fonction permet au joueur de se déplacer vers le haut.
-*/
-void move_up(player_t *player);
-
-/**
- *\brief La fonction permet au joueur de se déplacer vers le bas.
-*/
-void move_down(player_t *player);
 
 #endif
