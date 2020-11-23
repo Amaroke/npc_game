@@ -18,7 +18,7 @@ void test_apply_sprite()
     SDL_Renderer *renderer;
     SDL_Window *window;
     SDL_Texture *texture;
-    SDL_Rect dst = {16, 0, 16, 32};
+    SDL_Rect dst = {0, 0, 0, 0};
     ressources_t ressources;
     sprite_t *sprite;
 
