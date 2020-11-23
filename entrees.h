@@ -11,6 +11,11 @@
 #include <SDL2/SDL.h>
 #include "joueur.h"
 
+/**
+ *\brief La fonction gère les entrées clavier pour le joueur.
+ *\param event Les évènements claviers.
+ *\param player Le joueur.
+*/
 void input_player(SDL_Event *event, player_t *player);
 
 #endif
