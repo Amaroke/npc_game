@@ -8,6 +8,11 @@
 #ifndef RESSOURCES_H
 #define RESSOURCES_H
 
+//Constantes
+
+#define NPC_TEST_WIDTH 64
+#define NPC_TEST_HEIGHT 128
+
 #include <SDL2/SDL.h>
 #include "fonctions_SDL.h"
 

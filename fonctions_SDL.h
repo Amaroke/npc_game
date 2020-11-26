@@ -59,9 +59,11 @@ void pause(int time);
  * \brief La fonction applique la texture.
  * \param texture La texture à appliquer.
  * \param renderer L'affichage sur lequel on applique la texture.
- * \param dst Le rectangle de la texture.
+ * \param src Le rectangle source de la texture.
+ * \param x Les abscisses.
+ * \param y Les ordonnées.
 */
-void apply_texture(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect dst);
+void apply_texture(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect src, int x, int y);
 
 /**
  * \brief La fonction nettoie une texture en mémoire.

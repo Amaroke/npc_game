@@ -67,11 +67,16 @@ void pause(int time)
     SDL_Delay(time);
 }
 
-void apply_texture(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect dst)
+void apply_texture(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect src, int x, int y)
 {
+    SDL_Rect dst = {0, 0, 0, 0};
     SDL_QueryTexture(texture, NULL, NULL, &dst.w, &dst.h);
-    SDL_Rect homee = {16, 64, 16, 32};
-    SDL_RenderCopy(renderer, texture, &homee, &dst);
+    dst.x = x;
+    dst.y = y;
+    dst.w = src.w;
+    dst.h = src.h;
+    SDL_RenderCopy(renderer, texture, &src, &dst);
+
 }
 
 void clean_texture(SDL_Texture *texture)
