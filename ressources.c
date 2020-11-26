@@ -10,7 +10,7 @@
 void init_ressources(SDL_Renderer *renderer, ressources_t *ressources)
 {
 	ressources->background = load_picture("ressources/background.bmp", renderer, 0, 0, 0);
-	ressources->player = load_picture("ressources/sprites/player/player.bmp", renderer, 0, 0, 0);
+	ressources->player = load_picture("ressources/sprites/player/NPC_test.bmp", renderer, 0, 0, 0);
 }
 
 void clean_ressources(ressources_t *ressources)

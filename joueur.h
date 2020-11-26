@@ -39,6 +39,6 @@ void init_player(player_t *player, int orientation);
  *\param event Les évènements claviers.
  *\param player Le joueur.
 */
-void input_player(SDL_Event *event, player_t *player);
+void movement_player(SDL_Event *event, player_t *player);
 
 #endif

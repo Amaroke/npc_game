@@ -16,6 +16,7 @@
 #include <SDL2/SDL.h>
 #include "sprite.h"
 #include "ressources.h"
+#include "joueur.h"
 
 /**
  *\brief La fonction initialise le jeu.
@@ -32,6 +33,8 @@ void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources
  *\param ressources Les ressources.
 */
 void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources);
+
+void update_graphics(SDL_Renderer *renderer,player_t *player, SDL_Rect *src, ressources_t *ressources);
 
 /**
  *\brief La fonction applique la texture du sprite sur l'affichage lié à l'écran de jeu.

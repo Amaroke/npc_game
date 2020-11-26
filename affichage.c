@@ -19,11 +19,18 @@ void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources)
     clean_ressources(ressources);
 }
 
+void update_graphics(SDL_Renderer *renderer,player_t *player,SDL_Rect *src, ressources_t *ressources){
+    clear_renderer(renderer);
+    apply_sprite(renderer, ressources->player, &player->sprite, *src, player->sprite.x, player->sprite.y);
+    update_screen(renderer);
+}
+
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite, SDL_Rect src, int x, int y)
 {
     if (sprite->is_visible == true)
     {
-        apply_texture(texture, renderer, src, x, y); //coordonnées+demi sprite
+        printf("fzrzr");
+        apply_texture(texture, renderer, src, x, y);
     }
 }
 

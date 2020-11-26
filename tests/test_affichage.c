@@ -21,6 +21,9 @@ void test_apply_sprite()
     SDL_Rect src = {32, 96, 16, 32};
     ressources_t ressources;
     sprite_t *sprite;
+    SDL_Event *event = malloc(sizeof(SDL_Event));
+    player_t *player = malloc(sizeof(player_t));
+    init_player(player, 0);
 
     sprite = malloc(sizeof(sprite_t));
     init(&window, &renderer, &ressources);
@@ -29,7 +32,18 @@ void test_apply_sprite()
 
     apply_sprite(renderer, texture, sprite, src, sprite->x-NPC_TEST_WIDTH/8, sprite->y-NPC_TEST_HEIGHT/8);
     update_screen(renderer);
-    pause(1000);
+    //pause(1000);
+    printf("%i %i", player->sprite.x, player->sprite.y);
+    while (player->sprite.x < 200) //Tant que le jeu n'est pas fini.
+	{
+		//Gestion des évènements :
+		movement_player(event, player);
+		//Mise à jour des données liée à la physique du monde :
+		update_graphics(renderer, player, &src, &ressources);
+		//Rafraichissement de l'écran :
+        
+		pause(10);
+	}
     clean(window, renderer, &ressources);
 }
 

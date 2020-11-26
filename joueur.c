@@ -5,9 +5,11 @@
  *\date 2 novembre 2020
 */
 
+#include "affichage.h"
+#include "ressources.h"
 #include "joueur.h"
 
-
+// Constantes
 
 SDL_Rect array_sprite_down[NB_ANIMATIONS] = {{0, 0, 16, 32}, {16, 0, 16, 32}, {32, 0, 16, 32}, {48, 0, 16, 32}};
 SDL_Rect array_sprite_right[NB_ANIMATIONS] = {{0, 32, 16, 32}, {16, 32, 16, 32}, {32, 32, 16, 32}, {48, 32, 16, 32}};
@@ -21,30 +23,31 @@ void init_player(player_t *player, int orientation)
     player->orientation = orientation;
 }
 
-void input_player(SDL_Event *event, player_t *player) {
+void movement_player(SDL_Event *event, player_t *player) {
     
     while (SDL_PollEvent(event))
-	{
-		if (event->type == SDL_KEYDOWN)
-		{
-			if (event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d)
-			{
-				player->sprite.x += MOVING_STEP;
-                
+    {
+        if (event->type == SDL_KEYDOWN)
+        {
+            if (event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d)
+            {
+                player->sprite.x += MOVING_STEP;
+                printf("La touche ➡️ est appuyée ! \n");
+                printf("%i %i", player->sprite.x, player->sprite.y);
 
-			}
+            }
             if (event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q)
-			{
-				player->sprite.x -= MOVING_STEP;
-			}
+            {
+                player->sprite.x -= MOVING_STEP;
+            }
             if (event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s)
-			{
-				player->sprite.y += MOVING_STEP;
-			}
+            {
+                player->sprite.y += MOVING_STEP;
+            }
             if (event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z)
-			{
-				player->sprite.y -= MOVING_STEP;
-			}
+            {
+                player->sprite.y -= MOVING_STEP;
+            }
         }
     }
 }
