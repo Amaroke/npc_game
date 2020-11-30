@@ -4,11 +4,14 @@
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
  *\date 30 novembre 2020
 */
+
 #ifndef MONDE_H
 #define MONDE_H
+
 #include <stdbool.h>
 #include "sprite.h"
 #include "ressources.h"
+#include "affichage.h"
 
 typedef struct world_s
 {
@@ -17,7 +20,7 @@ typedef struct world_s
 	int score;								/*!< Score.*/
 	int timer;	                            /*!< Le temps.*/
     player_t *player;						/*!< Le joueur.*/	
-}world_t;
+} world_t;
 
 
 

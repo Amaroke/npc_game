@@ -10,6 +10,7 @@
 #include "../sprite.h"
 #include "../ressources.h"
 #include "../joueur.h"
+#include "../monde.h"
 #include <stdio.h>
 #include <stdlib.h>
 
