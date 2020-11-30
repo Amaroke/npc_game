@@ -32,7 +32,7 @@ typedef struct player_s
  *\param player Le player à initialiser.
  *\param orientation
 */
-void init_player(player_t *player, int orientation);
+void init_player(player_t *player);
 
 /**
  *\brief La fonction gère les entrées clavier pour le joueur.

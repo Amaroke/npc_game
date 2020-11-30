@@ -10,8 +10,8 @@
 void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, world_t * world)
 {
     init_sdl(window, renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
-    init_ressources(*renderer, ressources);
     init_data(world);
+    init_ressources(*renderer, ressources);
 }
 
 void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources, world_t *world)
@@ -23,7 +23,8 @@ void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources,
 
 void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *ressources){
     clear_renderer(renderer);
-    apply_sprite(renderer, ressources->player, &world->player->sprite, world->player->animation[0], world->player->sprite.x-NPC_TEST_WIDTH/8,  world->player->sprite.y-NPC_TEST_HEIGHT/8);
+    apply_background(renderer, ressources);
+    apply_sprite(renderer, ressources->player, &world->player->sprite, world->player->animation[0], world->player->sprite.x,  world->player->sprite.y);
     update_screen(renderer);
 }
 

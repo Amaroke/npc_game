@@ -16,9 +16,9 @@ SDL_Rect array_sprite_right[NB_ANIMATIONS] = {{0, 32, 16, 32}, {16, 32, 16, 32},
 SDL_Rect array_sprite_up[NB_ANIMATIONS] = {{0, 64, 16, 32}, {16, 64, 16, 32}, {32, 64, 16, 32}, {48, 64, 16, 32}};
 SDL_Rect array_sprite_left[NB_ANIMATIONS] = {{0, 96, 16, 32}, {16, 96, 16, 32}, {32, 96, 16, 32}, {48, 96, 16, 32}};
 
-void init_player(player_t *player, int orientation)
+void init_player(player_t *player)
 {
-    player->orientation = orientation;
+    player->orientation = 0;
     for (int i = 0; i < 4; ++i)
     {
         player->animation[i] = array_sprite_down[i];
@@ -26,6 +26,7 @@ void init_player(player_t *player, int orientation)
         player->animation[i + 8] = array_sprite_up[i];
         player->animation[i + 12] = array_sprite_right[i];
     }
+
 }
 
 void movement_player(SDL_Event *event, player_t *player)

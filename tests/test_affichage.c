@@ -24,8 +24,7 @@ void test_apply_sprite()
 
     init(&window, &renderer, &ressources, world);
 
-    apply_sprite(renderer, ressources.player, &world->player->sprite, world->player->animation[0], world->player->sprite.x-NPC_TEST_WIDTH/8,  world->player->sprite.y-NPC_TEST_HEIGHT/8);
-    //pause(1000);
+    apply_sprite(renderer, ressources.player, &world->player->sprite, world->player->animation[0], 50,  50);
     printf("%i %i", world->player->sprite.x, world->player->sprite.y);
     while (world->player->sprite.x < 200) //Tant que le jeu n'est pas fini.
 	{
