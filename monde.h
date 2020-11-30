@@ -11,7 +11,7 @@
 #include <stdbool.h>
 #include "sprite.h"
 #include "ressources.h"
-#include "affichage.h"
+#include "joueur.h"
 
 typedef struct world_s
 {

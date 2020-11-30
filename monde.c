@@ -7,7 +7,6 @@
 
 #include "monde.h"
 
-
 void init_data(world_t *world)
 {
     // On initialise toutes les deonnées de base du monde.
