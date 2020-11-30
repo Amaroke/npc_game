@@ -17,24 +17,33 @@
 #include "sprite.h"
 #include "ressources.h"
 #include "joueur.h"
+#include "monde.h"
 
 /**
  *\brief La fonction initialise le jeu.
  *\param window La fenêtre.
  *\param renderer L'affichage.
  *\param ressources Les ressources.
+ *\param world Le monde.
 */
-void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources);
+void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, world_t *world);
 
 /**
  *\brief La fonction nettoie le jeu.
  *\param window La fenêtre.
  *\param renderer L'affichage.
  *\param ressources Les ressources.
+ *\param world Le monde.
 */
-void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources);
+void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources, world_t *world);
 
-void update_graphics(SDL_Renderer *renderer,player_t *player, SDL_Rect *src, ressources_t *ressources);
+/**
+ *\brief La fonction rafraîchit l'affichage du jeu.
+ *\param renderer L'affichage.
+ *\param world Le monde.
+ *\param ressources Les ressources.
+*/
+void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *ressources);
 
 /**
  *\brief La fonction applique la texture du sprite sur l'affichage lié à l'écran de jeu.
