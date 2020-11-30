@@ -12,19 +12,19 @@
 
 #define MOVING_STEP 10
 #define ORIENTATION_DOWN 0
-#define ORIENTATION_UP  1
-#define ORIENTATION_LEFT  2
-#define ORIENTATION_RIGHT  3
+#define ORIENTATION_UP 1
+#define ORIENTATION_LEFT 2
+#define ORIENTATION_RIGHT 3
 #define NB_ANIMATIONS 4
 
 #include <SDL2/SDL.h>
 #include "sprite.h"
 
-
 typedef struct player_s
 {
-    sprite_t sprite;
-    int orientation;
+    sprite_t sprite;        /*!<Le sprite du joueur.*/
+    int orientation;        /*!<L'orientation du joueur.*/
+    SDL_Rect animation[16]; /*!<Les sprites découpés des animations du joueur.*/
 } player_t;
 
 /**
