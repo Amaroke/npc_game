@@ -27,22 +27,18 @@ void movement_player(SDL_Event *event, world_t *world)
                 {
                 case ORIENTATION_RIGHT:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 case ORIENTATION_RIGHT + 1:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 case ORIENTATION_RIGHT + 2:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 default:
                     world->player->orientation = ORIENTATION_RIGHT;
-                    printf("default");
                     break;
                 }
                 world->player->sprite.x += MOVING_STEP;
@@ -55,22 +51,18 @@ void movement_player(SDL_Event *event, world_t *world)
                 {
                 case ORIENTATION_LEFT:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 case ORIENTATION_LEFT + 1:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 case ORIENTATION_LEFT + 2:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 default:
                     world->player->orientation = ORIENTATION_LEFT;
-                    printf("default");
                     break;
                 }
 
@@ -84,22 +76,18 @@ void movement_player(SDL_Event *event, world_t *world)
                 {
                 case ORIENTATION_DOWN:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 case ORIENTATION_DOWN + 1:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 case ORIENTATION_DOWN + 2:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 default:
                     world->player->orientation = ORIENTATION_DOWN;
-                    printf("default");
                     break;
                 }
                 world->player->sprite.y += MOVING_STEP;
@@ -112,22 +100,18 @@ void movement_player(SDL_Event *event, world_t *world)
                 {
                 case ORIENTATION_UP:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 case ORIENTATION_UP + 1:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 case ORIENTATION_UP + 2:
                     world->player->orientation = world->player->orientation + 1;
-                    printf("case");
                     break;
 
                 default:
                     world->player->orientation = ORIENTATION_UP;
-                    printf("default");
                     break;
                 }
                 world->player->sprite.y -= MOVING_STEP;

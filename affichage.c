@@ -10,15 +10,15 @@
 void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, world_t * world)
 {
     init_sdl(window, renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
-    init_data(world);
     init_ressources(*renderer, ressources);
+    init_data(world);
 }
 
 void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources, world_t *world)
 {
-    clean_sdl(renderer, window);
-    clean_ressources(ressources);
     clean_data(world);
+    clean_ressources(ressources);
+    clean_sdl(renderer, window);
 }
 
 void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *ressources)

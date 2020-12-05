@@ -20,20 +20,18 @@ void test_apply_sprite()
     SDL_Renderer *renderer;
     SDL_Window *window;
     ressources_t ressources;
-    SDL_Event *event = malloc(sizeof(SDL_Event));
-    world_t *world = malloc(sizeof(world_t));
+    SDL_Event event;
+    world_t world;
 
-    init(&window, &renderer, &ressources, world);
+    init(&window, &renderer, &ressources, &world);
 
-    apply_sprite(renderer, ressources.player, &world->player->sprite, world->player->animation[0], 50,  50);
-    printf("%i %i", world->player->sprite.x, world->player->sprite.y);
-    while (!world->gameover) //Tant que le jeu n'est pas fini.
-	{
-		movement_player(event, world);
-		refresh_graphics(renderer, world,&ressources);
-		pause(10);
-	}
-    clean(window, renderer, &ressources, world);
+    while (!world.gameover) //Tant que le jeu n'est pas fini.
+    {
+        movement_player(&event, &world);
+        refresh_graphics(renderer, &world, &ressources);
+        pause(10);
+    }
+    clean(window, renderer, &ressources, &world);
 }
 
 void test_apply_background()
@@ -41,14 +39,14 @@ void test_apply_background()
     SDL_Renderer *renderer;
     SDL_Window *window;
     ressources_t ressources;
-    world_t *world = malloc(sizeof(world_t));
+    world_t world;
 
-    init(&window, &renderer, &ressources, world);
+    init(&window, &renderer, &ressources, &world);
 
     apply_background(renderer, &ressources);
     update_screen(renderer);
     pause(1000);
-    clean(window, renderer, &ressources, world);
+    clean(window, renderer, &ressources, &world);
 }
 
 /**
