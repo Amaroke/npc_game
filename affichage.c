@@ -21,10 +21,11 @@ void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources,
     clean_data(world);
 }
 
-void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *ressources){
+void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *ressources)
+{
     clear_renderer(renderer);
     apply_background(renderer, ressources);
-    apply_sprite(renderer, ressources->player, &world->player->sprite, world->player->animation[0], world->player->sprite.x,  world->player->sprite.y);
+    apply_sprite(renderer, ressources->player, &world->player->sprite, world->player->animation[world->player->orientation], world->player->sprite.x,  world->player->sprite.y);
     update_screen(renderer);
 }
 

@@ -11,6 +11,7 @@
 #include "../ressources.h"
 #include "../joueur.h"
 #include "../monde.h"
+#include "../event.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -26,9 +27,9 @@ void test_apply_sprite()
 
     apply_sprite(renderer, ressources.player, &world->player->sprite, world->player->animation[0], 50,  50);
     printf("%i %i", world->player->sprite.x, world->player->sprite.y);
-    while (world->player->sprite.x < 200) //Tant que le jeu n'est pas fini.
+    while (!world->gameover) //Tant que le jeu n'est pas fini.
 	{
-		movement_player(event, world->player);
+		movement_player(event, world);
 		refresh_graphics(renderer, world,&ressources);
 		pause(10);
 	}

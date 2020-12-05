@@ -36,4 +36,5 @@ void init_data(world_t *world);
 */
 void clean_data(world_t *world);
 
+
 #endif

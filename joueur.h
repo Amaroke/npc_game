@@ -10,11 +10,11 @@
 
 //Constantes
 
-#define MOVING_STEP 10
+#define MOVING_STEP 1
 #define ORIENTATION_DOWN 0
-#define ORIENTATION_UP 1
-#define ORIENTATION_LEFT 2
-#define ORIENTATION_RIGHT 3
+#define ORIENTATION_RIGHT 4
+#define ORIENTATION_UP 8
+#define ORIENTATION_LEFT 12
 #define NB_ANIMATIONS 4
 
 #include <SDL2/SDL.h>
@@ -30,15 +30,8 @@ typedef struct player_s
 /**
  *\brief La fonction initialise le player.
  *\param player Le player à initialiser.
- *\param orientation
 */
 void init_player(player_t *player);
 
-/**
- *\brief La fonction gère les entrées clavier pour le joueur.
- *\param event Les évènements claviers.
- *\param player Le joueur.
-*/
-void movement_player(SDL_Event *event, player_t *player);
 
 #endif
