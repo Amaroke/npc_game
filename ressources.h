@@ -15,6 +15,7 @@
 
 #include <SDL2/SDL.h>
 #include "fonctions_SDL.h"
+#include "terrain.h"
 
 /**
  *\struct texture_t
@@ -22,8 +23,16 @@
 */
 typedef struct ressources_s
 {
-	SDL_Texture *background; /*!<Texture liée à l'image du sol.*/
-	SDL_Texture *player;	 /*!<Texture liée au joueur.*/
+	SDL_Texture *background; 	/*!<Texture liée à l'image du sol.*/
+	SDL_Texture *player;	 	/*!<Texture liée au joueur.*/
+	wall_t *stone_brick_wall; 	/*!<Texture liée au mur en pierre taillée.*/
+	wall_t *dark_oak_wall;		/*!<Texture liée au mur en bois de chêne noir.*/
+	ground_t *grass_ground; 	/*!<Texture liée au sol d'herbe.*/
+	ground_t *stone_ground; 	/*!<Texture liée au sol de pierre.*/
+	ground_t *ice_ground;		/*!<Texture liée au sol de glace.*/
+	ground_t *sand_ground;		/*!<Texture liée au sol de sable.*/
+	ground_t *oak_ground;		/*!<Texture liée au sol en bois de chêne.*/
+	ground_t *magma_ground;		/*!<Texture liée au sol de magma.*/
 } ressources_t;
 
 /**

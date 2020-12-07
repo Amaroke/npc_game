@@ -11,21 +11,21 @@
 #include <SDL2/SDL.h>
 #include "sprite.h"
 
-typedef struct wall_s
+typedef struct bloc_s
 {
-    sprite_t sprite;        /*!<Le sprite du mur.*/
-    int code;               /*!<L'orientation du joueur.*/
-    int x;                  /*!<Les abscisses*/
-    int y;                  /*!<Les ordonnées*/
-} wall_t;
+    sprite_t sprite; /*!<Le sprite du bloc.*/
+    int effet;       /*!<L'effet que le bloc applique sur les entités.*/
+    int x;           /*!<Les abscisses*/
+    int y;           /*!<Les ordonnées*/
+    bool collision;  /*!<Vrai si c'est un mur, Faux si on peut marcher dessus*/
+} bloc_t;
 
 typedef struct ground_s
 {
-    sprite_t sprite;        /*!<Le sprite du sol.*/
-    int code;               /*!<L'orientation du joueur.*/
-    int x;                  /*!<Les abscisses*/
-    int y;                  /*!<Les ordonnées*/
+    sprite_t sprite; /*!<Le sprite du sol.*/
+    int identifiant; /*!<L'identifiant du bloc, si c'est un mur, un sol ou autre.*/
+    int x;           /*!<Les abscisses*/
+    int y;           /*!<Les ordonnées*/
 } ground_t;
-
 
 #endif
