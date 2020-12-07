@@ -25,8 +25,8 @@ typedef struct ressources_s
 {
 	SDL_Texture *background; 	/*!<Texture liée à l'image du sol.*/
 	SDL_Texture *player;	 	/*!<Texture liée au joueur.*/
-	wall_t *stone_brick_wall; 	/*!<Texture liée au mur en pierre taillée.*/
-	wall_t *dark_oak_wall;		/*!<Texture liée au mur en bois de chêne noir.*/
+	bloc_t *stone_brick_wall; 	/*!<Texture liée au mur en pierre taillée.*/
+	bloc_t *dark_oak_wall;		/*!<Texture liée au mur en bois de chêne noir.*/
 	ground_t *grass_ground; 	/*!<Texture liée au sol d'herbe.*/
 	ground_t *stone_ground; 	/*!<Texture liée au sol de pierre.*/
 	ground_t *ice_ground;		/*!<Texture liée au sol de glace.*/
