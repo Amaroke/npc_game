@@ -7,25 +7,25 @@
 
 #include "affichage.h"
 
-void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, world_t * world)
+void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, game_t * game)
 {
     init_sdl(window, renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
     init_ressources(*renderer, ressources);
-    init_data(world);
+    init_data(game);
 }
 
-void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources, world_t *world)
+void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources, game_t *game)
 {
-    clean_data(world);
+    clean_data(game);
     clean_ressources(ressources);
     clean_sdl(renderer, window);
 }
 
-void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *ressources)
+void refresh_graphics(SDL_Renderer *renderer, game_t *game, ressources_t *ressources)
 {
     clear_renderer(renderer);
     apply_background(renderer, ressources);
-    apply_sprite(renderer, ressources->player, &world->player->sprite, world->player->animation[world->player->orientation], world->player->sprite.x,  world->player->sprite.y);
+    apply_sprite(renderer, ressources->player, &game->player->sprite, game->player->animation[game->player->orientation], game->player->sprite.x,  game->player->sprite.y);
     update_screen(renderer);
 }
 

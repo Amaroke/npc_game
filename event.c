@@ -7,14 +7,14 @@
 
 #include "event.h"
 
-void movement_player(SDL_Event *event, world_t *world)
+void movement_player(SDL_Event *event, game_t *game)
 {
 
     while (SDL_PollEvent(event))
     {
         if (event->type == SDL_QUIT)
         {
-            world->gameover = 1;
+            game->gameover = 1;
         }
         if (event->type == SDL_KEYDOWN)
         {
@@ -23,104 +23,104 @@ void movement_player(SDL_Event *event, world_t *world)
 
                 printf("La touche ➡️ est appuyée ! \n");
 
-                switch (world->player->orientation)
+                switch (game->player->orientation)
                 {
                 case ORIENTATION_RIGHT:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 case ORIENTATION_RIGHT + 1:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 case ORIENTATION_RIGHT + 2:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 default:
-                    world->player->orientation = ORIENTATION_RIGHT;
+                    game->player->orientation = ORIENTATION_RIGHT;
                     break;
                 }
-                world->player->sprite.x += MOVING_STEP;
+                game->player->sprite.x += MOVING_STEP;
             }
             if (event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q)
             {
                 printf("La touche ⬅️ est appuyée ! \n");
 
-                switch (world->player->orientation)
+                switch (game->player->orientation)
                 {
                 case ORIENTATION_LEFT:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 case ORIENTATION_LEFT + 1:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 case ORIENTATION_LEFT + 2:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 default:
-                    world->player->orientation = ORIENTATION_LEFT;
+                    game->player->orientation = ORIENTATION_LEFT;
                     break;
                 }
 
-                world->player->sprite.x -= MOVING_STEP;
+                game->player->sprite.x -= MOVING_STEP;
             }
             if (event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s)
             {
                 printf("La touche ⬇️ est appuyée ! \n");
 
-                switch (world->player->orientation)
+                switch (game->player->orientation)
                 {
                 case ORIENTATION_DOWN:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 case ORIENTATION_DOWN + 1:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 case ORIENTATION_DOWN + 2:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 default:
-                    world->player->orientation = ORIENTATION_DOWN;
+                    game->player->orientation = ORIENTATION_DOWN;
                     break;
                 }
-                world->player->sprite.y += MOVING_STEP;
+                game->player->sprite.y += MOVING_STEP;
             }
             if (event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z)
             {
                 printf("La touche ⬆️ est appuyée ! \n");
 
-                switch (world->player->orientation)
+                switch (game->player->orientation)
                 {
                 case ORIENTATION_UP:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 case ORIENTATION_UP + 1:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 case ORIENTATION_UP + 2:
-                    world->player->orientation = world->player->orientation + 1;
+                    game->player->orientation = game->player->orientation + 1;
                     break;
 
                 default:
-                    world->player->orientation = ORIENTATION_UP;
+                    game->player->orientation = ORIENTATION_UP;
                     break;
                 }
-                world->player->sprite.y -= MOVING_STEP;
+                game->player->sprite.y -= MOVING_STEP;
             }
-            printf("orientation = %i\n", world->player->orientation);
-            printf("%i %i\n", world->player->sprite.x, world->player->sprite.y);
+            printf("orientation = %i\n", game->player->orientation);
+            printf("%i %i\n", game->player->sprite.x, game->player->sprite.y);
             if (event->key.keysym.sym == SDLK_ESCAPE)
             {
-                world->gameover = true;
+                game->gameover = true;
             }
             
         }

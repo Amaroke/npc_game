@@ -8,14 +8,14 @@
 
 #ifndef EVENT_H
 #define EVENT_H
-#include "monde.h"
+#include "jeu.h"
 
 
 /**
  *\brief La fonction initialise le player.
  *\param event Les évenements clavier.
- *\param world Le monde.
+ *\param game Le jeu.
 */
-void movement_player(SDL_Event *event, world_t *world);
+void movement_player(SDL_Event *event, game_t *game);
 
 #endif
