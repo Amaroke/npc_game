@@ -7,4 +7,14 @@
 
 
 #include "terrain.h"
+#include "sprite.h"
+
+
+
+void init_block(sprite_t *sprite, int x, int y, int h, int w, bool collision, bool is_visible)
+{
+    init_sprite(sprite, x, y, h, w, 0, is_visible);
+
+    
+}
 
