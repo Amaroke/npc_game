@@ -20,12 +20,5 @@ typedef struct bloc_s
     bool collision;  /*!<Vrai si c'est un mur, Faux si on peut marcher dessus*/
 } bloc_t;
 
-typedef struct ground_s
-{
-    sprite_t sprite; /*!<Le sprite du sol.*/
-    int identifiant; /*!<L'identifiant du bloc, si c'est un mur, un sol ou autre.*/
-    int x;           /*!<Les abscisses*/
-    int y;           /*!<Les ordonnées*/
-} ground_t;
 
 #endif

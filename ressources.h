@@ -23,16 +23,17 @@
 */
 typedef struct ressources_s
 {
-	SDL_Texture *background; 	/*!<Texture liée à l'image du sol.*/
-	SDL_Texture *player;	 	/*!<Texture liée au joueur.*/
-	bloc_t *stone_brick_wall; 	/*!<Texture liée au mur en pierre taillée.*/
-	bloc_t *dark_oak_wall;		/*!<Texture liée au mur en bois de chêne noir.*/
-	ground_t *grass_ground; 	/*!<Texture liée au sol d'herbe.*/
-	ground_t *stone_ground; 	/*!<Texture liée au sol de pierre.*/
-	ground_t *ice_ground;		/*!<Texture liée au sol de glace.*/
-	ground_t *sand_ground;		/*!<Texture liée au sol de sable.*/
-	ground_t *oak_ground;		/*!<Texture liée au sol en bois de chêne.*/
-	ground_t *magma_ground;		/*!<Texture liée au sol de magma.*/
+	SDL_Texture *background; /*!<Texture liée à l'image du sol.*/
+	SDL_Texture *player;	 /*!<Texture liée au joueur.*/
+	bloc_t *dark_oak;		 /*!<Texture en bois de chêne noir.*/
+	bloc_t *grass;			 /*!<Texture d'herbe.*/
+	bloc_t *stone;			 /*!<Texture de pierre.*/
+	bloc_t *ice;			 /*!<Texture de glace.*/
+	bloc_t *sand;			 /*!<Texture de sable.*/
+	bloc_t *light_oak;		 /*!<Texture en bois de chêne.*/
+	bloc_t *magma;			 /*!<Texture de magma.*/
+	bloc_t *brick;			 //*!<Texture en pierre taillée.*/
+	bloc_t *water;			 /*!<Texture de l'eau.*/
 } ressources_t;
 
 /**
