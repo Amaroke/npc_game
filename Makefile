@@ -1,12 +1,12 @@
 CC = gcc
 CFLAGS = -W -Wall -ansi -std=c99 -g
-LIBS = -L./SDL2_ttf/.libs
+LIBS = -L./SDL2_ttf/.libs/ -lm
 LDFLAGS = `sdl2-config --libs` -lSDL2_ttf
 INCLUDES = `sdl2-config --cflags` -lSDL2_ttf
 #Nom de l'executable :
 EXEC = main
 #Modifier les sources :
-SRC = fonctions_SDL.c ressources.c sprite.c joueur.c jeu.c affichage.c event.c tests/test_affichage.c
+SRC = fonctions_SDL.c ressources.c sprite.c joueur.c jeu.c affichage.c event.c terrain.c tests/level_test.c
 OBJ = $(SRC:.c=.o)
 
 all: $(EXEC)

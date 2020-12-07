@@ -19,7 +19,7 @@ typedef struct block_s
 } block_t;
 
 
-
+void init_block(sprite_t *sprite, int x, int y, int h, int w, bool collision, bool is_visible);
 
 
 #endif

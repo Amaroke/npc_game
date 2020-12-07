@@ -22,3 +22,26 @@ void init_player(player_t *player)
     }
 
 }
+
+
+#define SCREEN_WIDTH 1280
+#define SCREEN_HEIGHT 650
+
+  /*                 switch (game->player->orientation)
+                {
+                case ORIENTATION_RIGHT:
+                    game->player->orientation = game->player->orientation + 1;
+                    break;
+
+                case ORIENTATION_RIGHT + 1:
+                    game->player->orientation = game->player->orientation + 1;
+                    break;
+
+                case ORIENTATION_RIGHT + 2:
+                    game->player->orientation = game->player->orientation + 1;
+                    break;
+
+                default:
+                    game->player->orientation = ORIENTATION_RIGHT;
+                    break;
+                } */

@@ -19,7 +19,8 @@ typedef struct game_s
 	int etat_partie;						/*!< État de la partie. */
 	int score;								/*!< Score.*/
 	int timer;	                            /*!< Le temps.*/
-    player_t *player;						/*!< Le joueur.*/	
+    player_t *player;						/*!< Le joueur.*/
+	block_t *block;							/*!< Un bloc.*/	
 } game_t;
 
 

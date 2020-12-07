@@ -10,8 +10,8 @@
 
 //Constantes
 
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 650
+#define SCREEN_WIDTH 800
+#define SCREEN_HEIGHT SCREEN_WIDTH / 16 * 9
 
 #include <SDL2/SDL.h>
 #include "sprite.h"

@@ -24,7 +24,13 @@ typedef struct player_s
 {
     sprite_t sprite;        /*!<Le sprite du joueur.*/
     int orientation;        /*!<L'orientation du joueur.*/
+    int last_orientation;   /*!<La dernière orientation du joueur.*/
     SDL_Rect animation[16]; /*!<Les sprites découpés des animations du joueur.*/
+    int animation_speed;    /*!<La vitesse d'animation.*/
+    int current_frame;      /*!<La frame actuelle.*/
+    int frames;             /*!<Le nombre de sprites que compose une animation complète.*/
+    int frame;              /*!<Le calcul de la frame suivante.*/
+    bool is_moving;         /*!<Le joueur se déplace-t-il ?*/
 } player_t;
 
 /**
