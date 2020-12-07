@@ -1,5 +1,5 @@
 /**
- *\file event.c
+ *\file event.h
  *\brief Déclaration des évenements clavier.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
  *\date 5 décembre 2020
