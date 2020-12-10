@@ -45,3 +45,19 @@ void apply_background(SDL_Renderer *renderer, ressources_t *ressources)
         apply_texture(ressources->background, renderer, dst, 0, 0);
     }
 }
+
+void apply_block(SDL_Renderer *renderer, SDL_Texture *texture, block_t **blocks, int row, int column)
+{
+    SDL_Rect rectangle = {0, 0, BLOC_SIZE, BLOC_SIZE};
+    for(int i = 0; i < row ; i++)
+    {
+        for(int j = 0 ; j < column ; j++)
+        {
+            if (blocks[i][j].sprite.is_visible)
+            {
+                apply_texture(texture, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
+            }
+        }
+    }
+
+}

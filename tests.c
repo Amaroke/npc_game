@@ -49,6 +49,7 @@ void test_affichage()
     SDL_Event event;
 
     init(&window, &renderer, &ressources, &game);
+    printf("Cliquer sur la croix pour fermer la fenêtre\n");
     while (!game.gameover)
     {
         while (SDL_PollEvent(&event))
@@ -111,12 +112,59 @@ void test_init_block()
     }
 }
 
+void test_affichage_bloc()
+{
+    SDL_Renderer *renderer;
+    SDL_Window *window;
+    ressources_t ressources;
+    game_t game;
+    SDL_Event event;
+    int column = 2;
+    int row = 2;
+    block_t **blocks = malloc(sizeof(block_t) * row * column);
+    block_t *block_1 = malloc(sizeof(block_t));
+    //blocks = malloc(sizeof(block_t) * row * column);
+    init(&window, &renderer, &ressources, &game);
+    printf("Cliquer sur la croix pour fermer la fenêtre\n");
+    for(int i = 0 ; i < row ; i++)
+    {
+
+        blocks[i] = malloc(sizeof(block_t)*row);
+        for(int j = 0 ; j < column ; j++)
+        {
+            printf("\ntest av init\n");
+            init_block(&blocks[i][j], BLOC_SIZE*i, 20, BLOC_SIZE, BLOC_SIZE, true, 0, 1);
+            printf("\ntest ap init\n");
+        }
+    }
+    printf("\ntest av apply\n");
+    apply_block(renderer, ressources.brick, blocks, row, column);
+    printf("\ntest ap apply\n");
+    update_screen(renderer);
+    pause(5000);
+   /* while (!game.gameover)
+    {
+        while (SDL_PollEvent(&event))
+        {
+            if (event.type == SDL_QUIT)
+            {
+                game.gameover = 1;
+            }
+        }
+        refresh_graphics(renderer, &game, &ressources);
+        pause(10);
+    }*/
+    
+    clean(window, renderer, &ressources, &game);
+    printf("Test d'affichage réussi !\n");
+}
+
 int main(int argc, char *argv[])
 {
     int choix = 0;
-    while (choix != 1 || choix != 2 || choix != 3)
+    while (choix == 0)
     {
-        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage, les déplacements et les animations du joueur.\n4 : Tester l'afichage d'un bloc et son initialisation.\n");
+        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage, les déplacements et les animations du joueur.\n4 : Tester l'initialisation d'un bloc.\n5 : Tester l'affichage d'un bloc\n");
         printf(">>> ");
         scanf("%i", &choix);
         getchar();
@@ -140,12 +188,15 @@ int main(int argc, char *argv[])
         case 4:
             test_init_block();
             break;
+        case 5:
+            test_affichage_bloc();
+            break;
         default:
             printf("Choix invalide !");
             choix = 0;
             break;
         }
     }
-    printf("\033[H\033[2J");
+    //printf("\033[H\033[2J");
     return EXIT_SUCCESS;
 }

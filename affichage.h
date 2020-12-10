@@ -12,6 +12,7 @@
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT SCREEN_WIDTH / 16 * 9
+#define BLOC_SIZE 32
 
 #include <SDL2/SDL.h>
 #include "sprite.h"
@@ -62,5 +63,15 @@ void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite
  *\param ressources Les ressources.
 */
 void apply_background(SDL_Renderer *renderer, ressources_t *ressources);
+
+/**
+ *\brief La fonction applique la texture du fond sur le renderer lié l'affichage lié à l'écran de jeu.
+ *\param renderer L'affichage.
+ *\param texture La texture.
+ *\param blocks La matrice de blocs.
+ *\param row Le nombre de lignes de la matrice.
+ *\param column Le nombre de colonnes de la matrice.
+*/
+void apply_block(SDL_Renderer *renderer, SDL_Texture *texture, block_t **blocks, int row, int column);
 
 #endif
