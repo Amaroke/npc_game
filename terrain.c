@@ -11,10 +11,10 @@
 
 
 
-void init_block(sprite_t *sprite, int x, int y, int h, int w, bool collision, bool is_visible)
+void init_block(block_t *block, int x, int y, int h, int w, bool is_visible, int effet, bool collision)
 {
-    init_sprite(sprite, x, y, h, w, 0, is_visible);
-
-    
+    init_sprite(&block->sprite, x, y, h, w, 0, is_visible);
+    block->effet = effet;
+    block->collision = collision;  
 }
 

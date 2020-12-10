@@ -19,7 +19,18 @@ typedef struct block_s
 } block_t;
 
 
-void init_block(sprite_t *sprite, int x, int y, int h, int w, bool collision, bool is_visible);
+/**
+ * \brief L'initialisation d'un bloc.
+ * \param block Le bloc.
+ * \param x Les abscisses.
+ * \param y Les ordonnées.
+ * \param h La hauteur.
+ * \param w La largeur.
+ * \param is_visible La visibilité.
+ * \param effet L'effet du bloc.
+ * \param collision Les collisions avec le bloc.
+ **/ 
+void init_block(block_t *block, int x, int y, int h, int w, bool is_visible, int effet, bool collision);
 
 
 #endif

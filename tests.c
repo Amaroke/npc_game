@@ -26,7 +26,7 @@ void test_init_sprite()
     }
     else
     {
-        printf("Test réussi d'initialisation 1 !\n");
+        printf("Test d'initialisation n°1 d'un sprite réussi !\n");
     }
 
     init_sprite(sprite_test, 10, 10, 10, 10, 1, true);
@@ -36,9 +36,10 @@ void test_init_sprite()
     }
     else
     {
-        printf("Test réussi d'initialisation 2 !\n");
+        printf("Test d'initialisation n°2 d'un sprite réussi !\n");
     }
 }
+
 
 void test_affichage()
 {
@@ -76,8 +77,31 @@ void test_player()
     clean(window, renderer, &ressources, &game);
 }
 
-void test_print_block()
+void test_init_block()
 {
+
+    block_t *block_test;
+    block_test = malloc(sizeof(block_t));
+    init_block(block_test, 0, 0, 0, 0, false, 0, false);
+    if (block_test->sprite.x != 0 || block_test->sprite.y != 0 || block_test->sprite.w != 0 || block_test->sprite.h != 0 || block_test->sprite.s != 0 || block_test->sprite.is_visible != false || block_test->effet != 0 || block_test->collision != false)
+    {
+        printf("Il y a un problème, lors de l'initialisation d'un sprite avec comme paramètres : x = 0, y = 0, w = 0, h = 0, s = 0, is_visible = false, effet = 0, collision = false");
+    }
+    else
+    {
+        printf("Test d'initialisation n°1 d'un bloc réussi !\n");
+    }
+
+    init_block(block_test, 10, 10, 10, 10, true, 1, true);
+    if (block_test->sprite.x != 10 || block_test->sprite.y != 10 || block_test->sprite.w != 10 || block_test->sprite.h != 10 || block_test->sprite.s != 0 || block_test->sprite.is_visible != true || block_test->effet != 1 || block_test->collision != true)
+    {
+        printf("Il y a un problème, lors de l'initialisation d'un sprite avec comme paramètres : x = 10, y = 10, w = 10, h = 10, s = 0, is_visible = true, effet = 0, collision = false");
+    }
+    else
+    {
+        printf("Test d'initialisation n°2 d'un bloc réussi !\n");
+    }
+
 }
 
 int main(int argc, char *argv[])
@@ -107,7 +131,7 @@ int main(int argc, char *argv[])
             test_player();
             break;
         case 4:
-            test_print_block();
+            test_init_block();
             break;
         default:
             printf("Choix invalide !");
