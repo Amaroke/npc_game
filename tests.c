@@ -40,7 +40,6 @@ void test_init_sprite()
     }
 }
 
-
 void test_affichage()
 {
     SDL_Renderer *renderer;
@@ -50,9 +49,18 @@ void test_affichage()
     SDL_Event event;
 
     init(&window, &renderer, &ressources, &game);
-
-    refresh_graphics(renderer, &game, &ressources);
-    pause(2000);
+    while (!game.gameover)
+    {
+        while (SDL_PollEvent(&event))
+        {
+            if (event.type == SDL_QUIT)
+            {
+                game.gameover = 1;
+            }
+        }
+        refresh_graphics(renderer, &game, &ressources);
+        pause(10);
+    }
 
     clean(window, renderer, &ressources, &game);
     printf("Test d'affichage réussi !\n");
@@ -101,7 +109,6 @@ void test_init_block()
     {
         printf("Test d'initialisation n°2 d'un bloc réussi !\n");
     }
-
 }
 
 int main(int argc, char *argv[])
@@ -109,7 +116,7 @@ int main(int argc, char *argv[])
     int choix = 0;
     while (choix != 1 || choix != 2 || choix != 3)
     {
-        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond.\n3 : Tester l'affichage, les déplacements et les animations du joueur.\n4 : Tester l'afichage d'un bloc et son initialisation.\n");
+        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage, les déplacements et les animations du joueur.\n4 : Tester l'afichage d'un bloc et son initialisation.\n");
         printf(">>> ");
         scanf("%i", &choix);
         getchar();
