@@ -6,7 +6,7 @@ INCLUDES = `sdl2-config --cflags` -lSDL2_ttf
 #Nom de l'executable :
 EXEC = main
 #Modifier les sources :
-SRC = fonctions_SDL.c ressources.c sprite.c joueur.c jeu.c affichage.c event.c terrain.c tests/level_test.c
+SRC = fonctions_SDL.c ressources.c sprite.c joueur.c jeu.c affichage.c event.c terrain.c tests.c
 OBJ = $(SRC:.c=.o)
 
 all: $(EXEC)
