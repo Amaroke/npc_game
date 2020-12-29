@@ -40,5 +40,11 @@ void init_block(block_t *block, int x, int y, int h, int w, bool is_visible, int
  **/
 block_t **int_to_block(int **tab_int, int row, int column);
 
+/**
+ * \brief Conversion du contenu d'un fichier txt en un tableau d'entiers.
+ * \param fichier Le fichier à traiter
+ **/
+int **txt_to_int(char* fichier);
+
 
 #endif

@@ -177,7 +177,7 @@ void test_int_to_block()
             }
         }
     }
-    apply_block(renderer, ressources, int_to_block(int_tab, row, column), row, column);
+    apply_block(renderer, ressources, int_to_block(txt_to_int("fichier.txt"), row, column), row, column); // modif int tab par txt_to_int
     update_screen(renderer);
     while (!game.gameover)
     {
@@ -194,12 +194,26 @@ void test_int_to_block()
     printf("Test d'affichage réussi !\n");
 }
 
+void test_txt_to_int()
+{
+    txt_to_int("fichier.txt");
+/* 
+    for (int i = 0; i < 18 ; i++)
+    {
+        printf("\n");
+        for (int j = 0; j < 32 ; j++)
+        {
+            printf("%i ", res[i][j]);
+        }
+*/
+}
+
 int main(int argc, char *argv[])
 {
     int choix = 0;
     while (choix == 0)
     {
-        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage, les déplacements et les animations du joueur.\n4 : Tester l'initialisation d'un bloc.\n5 : Tester l'affichage d'un bloc\n6 : Tester la conversion d'un tableau de block.\n");
+        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage, les déplacements et les animations du joueur.\n4 : Tester l'initialisation d'un bloc.\n5 : Tester l'affichage d'un bloc\n6 : Tester la conversion d'un tableau de block.\n7 : Tester la gestion fichier\n");
         printf(">>> ");
         scanf("%i", &choix);
         getchar();
@@ -228,6 +242,9 @@ int main(int argc, char *argv[])
             break;
         case 6:
             test_int_to_block();
+            break;
+        case 7:
+            test_txt_to_int();
             break;
         default:
             printf("Choix invalide !");
