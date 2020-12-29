@@ -32,5 +32,13 @@ typedef struct block_s
  **/ 
 void init_block(block_t *block, int x, int y, int h, int w, bool is_visible, int effet, bool collision);
 
+/**
+ * \brief Conversion d'un tableau d'int en un tableau de blocks.
+ * \param tab_int Le tableau d'int.
+ * \param row Le nombre de lignes.
+ * \param column Le nombre de colonnes.
+ **/
+block_t **int_to_block(int **tab_int, int row, int column);
+
 
 #endif

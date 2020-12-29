@@ -122,27 +122,19 @@ void test_affichage_bloc()
     int column = 2;
     int row = 2;
     block_t **blocks = malloc(sizeof(block_t) * row * column);
-    block_t *block_1 = malloc(sizeof(block_t));
-    //blocks = malloc(sizeof(block_t) * row * column);
     init(&window, &renderer, &ressources, &game);
     printf("Cliquer sur la croix pour fermer la fenêtre\n");
-    for(int i = 0 ; i < row ; i++)
+    for (int i = 0; i < row; i++)
     {
-
-        blocks[i] = malloc(sizeof(block_t)*row);
-        for(int j = 0 ; j < column ; j++)
+        blocks[i] = malloc(sizeof(block_t) * row);
+        for (int j = 0; j < column; j++)
         {
-            printf("\ntest av init\n");
-            init_block(&blocks[i][j], BLOC_SIZE*i, 20, BLOC_SIZE, BLOC_SIZE, true, 0, 1);
-            printf("\ntest ap init\n");
+            init_block(&blocks[i][j], BLOC_SIZE * i, 20, BLOC_SIZE, BLOC_SIZE, true, 0, 1);
         }
     }
-    printf("\ntest av apply\n");
-    apply_block(renderer, ressources.brick, blocks, row, column);
-    printf("\ntest ap apply\n");
+    apply_block(renderer, ressources, blocks, row, column);
     update_screen(renderer);
-    pause(5000);
-   /* while (!game.gameover)
+    while (!game.gameover)
     {
         while (SDL_PollEvent(&event))
         {
@@ -151,10 +143,53 @@ void test_affichage_bloc()
                 game.gameover = 1;
             }
         }
-        refresh_graphics(renderer, &game, &ressources);
         pause(10);
-    }*/
-    
+    }
+
+    clean(window, renderer, &ressources, &game);
+    printf("Test d'affichage réussi !\n");
+}
+
+void test_int_to_block()
+{
+    SDL_Renderer *renderer;
+    SDL_Window *window;
+    ressources_t ressources;
+    game_t game;
+    SDL_Event event;
+    int row = 18;
+    int column = 32;
+    int **int_tab = malloc(sizeof(int) * row * column);
+    init(&window, &renderer, &ressources, &game);
+    printf("Cliquer sur la croix pour fermer la fenêtre\n");
+    for (int i = 0; i < row; i++)
+    {
+        int_tab[i] = malloc(sizeof(int) * column);
+        for (int j = 0; j < column; j++)
+        {
+            if (i == 0 || j == 0 || i == row-1 || j == column-1)
+            {
+                int_tab[i][j] = 1;
+            }
+            else
+            {
+                int_tab[i][j] = 5;
+            }
+        }
+    }
+    apply_block(renderer, ressources, int_to_block(int_tab, row, column), row, column);
+    update_screen(renderer);
+    while (!game.gameover)
+    {
+        while (SDL_PollEvent(&event))
+        {
+            if (event.type == SDL_QUIT)
+            {
+                game.gameover = 1;
+            }
+        }
+        pause(10);
+    }
     clean(window, renderer, &ressources, &game);
     printf("Test d'affichage réussi !\n");
 }
@@ -164,7 +199,7 @@ int main(int argc, char *argv[])
     int choix = 0;
     while (choix == 0)
     {
-        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage, les déplacements et les animations du joueur.\n4 : Tester l'initialisation d'un bloc.\n5 : Tester l'affichage d'un bloc\n");
+        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage, les déplacements et les animations du joueur.\n4 : Tester l'initialisation d'un bloc.\n5 : Tester l'affichage d'un bloc\n6 : Tester la conversion d'un tableau de block.\n");
         printf(">>> ");
         scanf("%i", &choix);
         getchar();
@@ -191,12 +226,14 @@ int main(int argc, char *argv[])
         case 5:
             test_affichage_bloc();
             break;
+        case 6:
+            test_int_to_block();
+            break;
         default:
             printf("Choix invalide !");
             choix = 0;
             break;
         }
     }
-    //printf("\033[H\033[2J");
     return EXIT_SUCCESS;
 }

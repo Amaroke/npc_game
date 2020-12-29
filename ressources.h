@@ -32,7 +32,7 @@ typedef struct ressources_s
 	SDL_Texture *sand;			 /*!<Texture de sable.*/
 	SDL_Texture *light_oak;		 /*!<Texture en bois de chêne.*/
 	SDL_Texture *magma;			 /*!<Texture de magma.*/
-	SDL_Texture *brick;			 //*!<Texture en pierre taillée.*/
+	SDL_Texture *wall;			 //*!<Texture en pierre taillée.*/
 	SDL_Texture *water;			 /*!<Texture de l'eau.*/
 } ressources_t;
 

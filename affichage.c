@@ -7,7 +7,7 @@
 
 #include "affichage.h"
 
-void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, game_t * game)
+void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, game_t *game)
 {
     init_sdl(window, renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
     init_ressources(*renderer, ressources);
@@ -25,7 +25,7 @@ void refresh_graphics(SDL_Renderer *renderer, game_t *game, ressources_t *ressou
 {
     clear_renderer(renderer);
     apply_background(renderer, ressources);
-    apply_sprite(renderer, ressources->player, &game->player->sprite, game->player->animation[game->player->orientation], game->player->sprite.x,  game->player->sprite.y);
+    apply_sprite(renderer, ressources->player, &game->player->sprite, game->player->animation[game->player->orientation], game->player->sprite.x, game->player->sprite.y);
     update_screen(renderer);
 }
 
@@ -46,18 +46,37 @@ void apply_background(SDL_Renderer *renderer, ressources_t *ressources)
     }
 }
 
-void apply_block(SDL_Renderer *renderer, SDL_Texture *texture, block_t **blocks, int row, int column)
+void apply_block(SDL_Renderer *renderer, ressources_t ressources, block_t **blocks, int row, int column)
 {
     SDL_Rect rectangle = {0, 0, BLOC_SIZE, BLOC_SIZE};
-    for(int i = 0; i < row ; i++)
+    for (int i = 0; i < row; i++)
     {
-        for(int j = 0 ; j < column ; j++)
+        for (int j = 0; j < column; j++)
         {
             if (blocks[i][j].sprite.is_visible)
             {
-                apply_texture(texture, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
+                switch (blocks[i][j].effet)
+                {
+                case 1:
+                    apply_texture(ressources.wall, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
+                    break;
+                case 2:
+                    apply_texture(ressources.water, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
+                    break;
+                case 3:
+                    apply_texture(ressources.magma, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
+                    break;
+                case 4:
+                    apply_texture(ressources.ice, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
+                    break;
+                case 5:
+                    apply_texture(ressources.light_oak, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
+                    break;
+                case 6:
+                    apply_texture(ressources.dark_oak, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
+                    break;
+                }
             }
         }
     }
-
 }
