@@ -177,7 +177,7 @@ void test_int_to_block()
             }
         }
     }
-    apply_block(renderer, ressources, int_to_block(txt_to_int("fichier.txt"), row, column), row, column); // modif int tab par txt_to_int
+    apply_block(renderer, ressources, int_to_block(int_tab, row, column), row, column); 
     update_screen(renderer);
     while (!game.gameover)
     {
@@ -196,16 +196,17 @@ void test_int_to_block()
 
 void test_txt_to_int()
 {
-    txt_to_int("fichier.txt");
-/* 
+    int **res = malloc(sizeof(int) * 18 * 32);
+    res = txt_to_int("test.txt");
     for (int i = 0; i < 18 ; i++)
     {
-        printf("\n");
         for (int j = 0; j < 32 ; j++)
         {
             printf("%i ", res[i][j]);
         }
-*/
+        printf("\n");
+    }
+    printf("Test d'affichage réussi !\n");
 }
 
 int main(int argc, char *argv[])

@@ -62,13 +62,11 @@ int **txt_to_int(char *fichier)
         while (c != EOF)
         {
             c = fgetc(file);
-            //printf("%c", c);
             if (c != EOF && c != 10) // 10 correspont au saut à la ligne en ASCII.
             {
                 res[i][j] = c - '0'; // 0 par rapport à la table ASCII.
                 j++;
             }
-
             if (c == 10)
             {
                 j = 0;
