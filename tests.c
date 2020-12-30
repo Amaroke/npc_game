@@ -119,20 +119,16 @@ void test_affichage_bloc()
     ressources_t ressources;
     game_t game;
     SDL_Event event;
-    int column = 2;
-    int row = 2;
-    block_t **blocks = malloc(sizeof(block_t) * row * column);
     init(&window, &renderer, &ressources, &game);
     printf("Cliquer sur la croix pour fermer la fenêtre\n");
-    for (int i = 0; i < row; i++)
+    for (int i = 0; i < ROW; i++)
     {
-        blocks[i] = malloc(sizeof(block_t) * row);
-        for (int j = 0; j < column; j++)
+        for (int j = 0; j < COLUMN; j++)
         {
-            init_block(&blocks[i][j], BLOC_SIZE * i, 20, BLOC_SIZE, BLOC_SIZE, true, 0, 1);
+            init_block(&game.block[i][j], BLOC_SIZE * i, 20, BLOC_SIZE, BLOC_SIZE, true, 1, 1);
         }
     }
-    apply_block(renderer, ressources, blocks, row, column);
+    apply_block(renderer, ressources, game.block);
     update_screen(renderer);
     while (!game.gameover)
     {
@@ -157,17 +153,15 @@ void test_int_to_block()
     ressources_t ressources;
     game_t game;
     SDL_Event event;
-    int row = 18;
-    int column = 32;
-    int **int_tab = malloc(sizeof(int) * row * column);
+    int **int_tab = malloc(sizeof(int) * ROW * COLUMN);
     init(&window, &renderer, &ressources, &game);
     printf("Cliquer sur la croix pour fermer la fenêtre\n");
-    for (int i = 0; i < row; i++)
+    for (int i = 0; i < ROW; i++)
     {
-        int_tab[i] = malloc(sizeof(int) * column);
-        for (int j = 0; j < column; j++)
+        int_tab[i] = malloc(sizeof(int) * COLUMN);
+        for (int j = 0; j < COLUMN; j++)
         {
-            if (i == 0 || j == 0 || i == row-1 || j == column-1)
+            if (i == 0 || j == 0 || i == ROW-1 || j == COLUMN-1)
             {
                 int_tab[i][j] = 1;
             }
@@ -177,7 +171,8 @@ void test_int_to_block()
             }
         }
     }
-    apply_block(renderer, ressources, int_to_block(int_tab, row, column), row, column); 
+    int_to_block(game.block, int_tab);
+    apply_block(renderer, ressources, game.block); 
     update_screen(renderer);
     while (!game.gameover)
     {
@@ -234,18 +229,23 @@ int main(int argc, char *argv[])
             break;
         case 3:
             test_player();
+            choix = 0;
             break;
         case 4:
             test_init_block();
+            choix = 0;
             break;
         case 5:
             test_affichage_bloc();
+            choix = 0;
             break;
         case 6:
             test_int_to_block();
+            choix = 0;
             break;
         case 7:
             test_txt_to_int();
+            choix = 0;
             break;
         default:
             printf("Choix invalide !");

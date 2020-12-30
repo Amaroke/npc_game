@@ -11,7 +11,9 @@
 //Constantes
 
 #define SCREEN_WIDTH 1024 // 32 colonnes de blocs
+#define COLUMN 32
 #define SCREEN_HEIGHT SCREEN_WIDTH / 16 * 9 // 18 lignes de blocs
+#define ROW 18
 #define BLOC_SIZE 32
 
 #include <SDL2/SDL.h>
@@ -69,9 +71,7 @@ void apply_background(SDL_Renderer *renderer, ressources_t *ressources);
  *\param renderer L'affichage.
  *\param texture La texture.
  *\param blocks La matrice de blocs.
- *\param row Le nombre de lignes de la matrice.
- *\param column Le nombre de colonnes de la matrice.
 */
-void apply_block(SDL_Renderer *renderer, ressources_t ressources, block_t **blocks, int row, int column);
+void apply_block(SDL_Renderer *renderer, ressources_t ressources, block_t **blocks);
 
 #endif

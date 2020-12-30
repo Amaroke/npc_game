@@ -46,12 +46,12 @@ void apply_background(SDL_Renderer *renderer, ressources_t *ressources)
     }
 }
 
-void apply_block(SDL_Renderer *renderer, ressources_t ressources, block_t **blocks, int row, int column)
+void apply_block(SDL_Renderer *renderer, ressources_t ressources, block_t **blocks)
 {
     SDL_Rect rectangle = {0, 0, BLOC_SIZE, BLOC_SIZE};
-    for (int i = 0; i < row; i++)
+    for (int i = 0; i < ROW; i++)
     {
-        for (int j = 0; j < column; j++)
+        for (int j = 0; j < COLUMN; j++)
         {
             if (blocks[i][j].sprite.is_visible)
             {

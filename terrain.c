@@ -16,25 +16,22 @@ void init_block(block_t *block, int x, int y, int h, int w, bool is_visible, int
     block->collision = collision;
 }
 
-block_t **int_to_block(int **tab_int, int row, int column)
+void int_to_block(block_t **tab_block, int **tab_int)
 {
-    block_t **tab_block = malloc(sizeof(block_t) * row * column);
-    for (int i = 0; i < row; i++)
+    for (int i = 0; i < ROW; i++)
     {
-        tab_block[i] = malloc(sizeof(block_t) * column);
-        for (int j = 0; j < column; j++)
+        for (int j = 0; j < COLUMN; j++)
         {
-            if (tab_int[i][j] == 0 || tab_int[i][j] == 1)
+            if (tab_int[i][j] == 1) //Gestion des collisions
             {
-                init_block(&tab_block[i][j], j * 32, i * 32, BLOC_SIZE, BLOC_SIZE, true, tab_int[i][j], true);
+                init_block(&tab_block[i][j], j * BLOC_SIZE, i * BLOC_SIZE, BLOC_SIZE, BLOC_SIZE, true, tab_int[i][j], true);
             }
             else
             {
-                init_block(&tab_block[i][j], j * 32, i * 32, BLOC_SIZE, BLOC_SIZE, true, tab_int[i][j], false);
+                init_block(&tab_block[i][j], j * BLOC_SIZE, i * BLOC_SIZE, BLOC_SIZE, BLOC_SIZE, true, tab_int[i][j], false);
             }
         }
     }
-    return tab_block;
 }
 
 int **txt_to_int(char *fichier)
