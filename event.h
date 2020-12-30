@@ -8,6 +8,8 @@
 
 #ifndef EVENT_H
 #define EVENT_H
+#include <math.h>
+#include "fonctions_SDL.h"
 #include "jeu.h"
 
 

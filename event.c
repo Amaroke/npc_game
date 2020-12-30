@@ -6,7 +6,6 @@
 */
 
 #include "event.h"
-#include <math.h>
 
 void movement_player(SDL_Event *event, game_t *game)
 {
@@ -27,17 +26,19 @@ void movement_player(SDL_Event *event, game_t *game)
         }
         int index = (game->player->frame * game->player->frames) / game->player->animation_speed;
         game->player->current_frame = fmin(index, game->player->frames - 1);
-        //printf("frame actuelle :%i\n", game->player->current_frame);
 
         if (event->type == SDL_KEYDOWN)
         {
             if (event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d)
             {
                 printf("La touche ➡️ est appuyée ! \n");
-                game->player->is_moving = true;
-                game->player->last_orientation = ORIENTATION_RIGHT;
-                game->player->orientation = ORIENTATION_RIGHT + game->player->current_frame;
-                game->player->sprite.x += MOVING_STEP;
+                if (!bloc_collide(game))
+                {
+                    game->player->is_moving = true;
+                    game->player->last_orientation = ORIENTATION_RIGHT;
+                    game->player->orientation = ORIENTATION_RIGHT + game->player->current_frame;
+                    game->player->sprite.x += MOVING_STEP;
+                }
             }
             else if (event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q)
             {

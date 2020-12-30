@@ -8,19 +8,12 @@
 #ifndef AFFICHAGE_H
 #define AFFICHAGE_H
 
-//Constantes
-
-#define SCREEN_WIDTH 1024 // 32 colonnes de blocs
-#define COLUMN 32
-#define SCREEN_HEIGHT SCREEN_WIDTH / 16 * 9 // 18 lignes de blocs
-#define ROW 18
-#define BLOC_SIZE 32
-
 #include <SDL2/SDL.h>
-#include "sprite.h"
+#include <stdbool.h>
 #include "ressources.h"
-#include "joueur.h"
 #include "jeu.h"
+#include "sprite.h"
+#include "terrain.h"
 
 /**
  *\brief La fonction initialise le jeu.

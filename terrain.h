@@ -8,8 +8,11 @@
 #ifndef TERRAIN_H
 #define TERRAIN_H
 
+#include <stdbool.h>
 #include <SDL2/SDL.h>
-#include "sprite.h"
+#include "affichage.h"
+
+
 
 typedef struct block_s
 {
@@ -17,7 +20,6 @@ typedef struct block_s
     int effet;       /*!<L'effet que le bloc applique sur les entités.*/
     bool collision;  /*!<Vrai si c'est un mur, Faux si on peut marcher dessus*/
 } block_t;
-
 
 /**
  * \brief L'initialisation d'un bloc.
@@ -29,7 +31,7 @@ typedef struct block_s
  * \param is_visible La visibilité.
  * \param effet L'effet du bloc.
  * \param collision Les collisions avec le bloc.
- **/ 
+ **/
 void init_block(block_t *block, int x, int y, int h, int w, bool is_visible, int effet, bool collision);
 
 /**
@@ -43,7 +45,19 @@ void int_to_block(block_t **tab_block, int **tab_int);
  * \brief Conversion du contenu d'un fichier txt en un tableau d'entiers.
  * \param fichier Le fichier à traiter
  **/
-int **txt_to_int(char* fichier);
+int **txt_to_int(char *fichier);
 
+/**
+ * \brief Test de la collision entre deux sprites.
+ * \param player Le sprite du joueur.
+ * \param block Le sprite du bloc.
+ **/
+bool sprite_collide(sprite_t *player, sprite_t *block);
+
+/**
+ * \brief Test de la collision entre le joueur et le terrain.
+ * \param game Le jeu.
+ **/
+bool bloc_collide(sprite_t *player, block_t **block);
 
 #endif

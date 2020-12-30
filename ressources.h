@@ -15,7 +15,6 @@
 
 #include <SDL2/SDL.h>
 #include "fonctions_SDL.h"
-#include "terrain.h"
 
 /**
  *\struct texture_t

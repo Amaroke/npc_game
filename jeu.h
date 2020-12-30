@@ -27,13 +27,19 @@ typedef struct game_s
 
 /**
  *\brief La fonction initialise le monde.
- *\param game Le monde.
+ *\param game Le jeu.
 */
 void init_data(game_t *game);
 
 /**
+ *\brief La fonction initialise le monde.
+ *\param game Le jeu.
+*/
+void update_data(game_t game);
+
+/**
  *\brief La fonction nettoie le monde.
- *\param game Le monde.
+ *\param game Le jeu.
 */
 void clean_data(game_t *game);
 

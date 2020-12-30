@@ -5,8 +5,7 @@
  *\date 2 novembre 2020
 */
 
-#include "affichage.h"
-#include "ressources.h"
+
 #include "joueur.h"
 
 // Constantes

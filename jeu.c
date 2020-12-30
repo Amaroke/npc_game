@@ -6,8 +6,6 @@
 */
 
 #include "jeu.h"
-#include "terrain.h"
-#include "affichage.h"
 
 void init_data(game_t *game)
 {
@@ -26,8 +24,23 @@ void init_data(game_t *game)
     }
 }
 
+void update_data(game_t game)
+{
+    for (int i = 0; i < ROW; ++i)
+    {
+        for (int j = 0; j < COLUMN; ++j)
+        {
+            if (game.block[i][j].collision)
+            {
+                if(sprite_collide(&game.player->sprite, &game.block[i][j].sprite)){
+                    printf("COLLISION\n");
+                }
+            }
+        }
+    }
+}
+
 void clean_data(game_t *game)
 {
     free(game->player);
 }
-

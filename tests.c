@@ -161,7 +161,7 @@ void test_int_to_block()
         int_tab[i] = malloc(sizeof(int) * COLUMN);
         for (int j = 0; j < COLUMN; j++)
         {
-            if (i == 0 || j == 0 || i == ROW-1 || j == COLUMN-1)
+            if (i == 0 || j == 0 || i == ROW - 1 || j == COLUMN - 1)
             {
                 int_tab[i][j] = 1;
             }
@@ -172,7 +172,7 @@ void test_int_to_block()
         }
     }
     int_to_block(game.block, int_tab);
-    apply_block(renderer, ressources, game.block); 
+    apply_block(renderer, ressources, game.block);
     update_screen(renderer);
     while (!game.gameover)
     {
@@ -193,9 +193,9 @@ void test_txt_to_int()
 {
     int **res = malloc(sizeof(int) * 18 * 32);
     res = txt_to_int("test.txt");
-    for (int i = 0; i < 18 ; i++)
+    for (int i = 0; i < 18; i++)
     {
-        for (int j = 0; j < 32 ; j++)
+        for (int j = 0; j < 32; j++)
         {
             printf("%i ", res[i][j]);
         }
@@ -204,12 +204,33 @@ void test_txt_to_int()
     printf("Test d'affichage réussi !\n");
 }
 
+void test_collision()
+{
+    SDL_Renderer *renderer;
+    SDL_Window *window;
+    ressources_t ressources;
+    game_t game;
+    SDL_Event event;
+    init(&window, &renderer, &ressources, &game);
+    printf("Cliquer sur la croix pour fermer la fenêtre\n");
+    int_to_block(game.block, txt_to_int("test_collisions.txt"));
+    while (!game.gameover) //Tant que le jeu n'est pas fini.
+    {
+        movement_player(&event, &game);
+        update_data(game);
+        refresh_graphics(renderer, &game, &ressources);
+        pause(10);
+    }
+    clean(window, renderer, &ressources, &game);
+    printf("Test d'affichage réussi !\n");
+}
+
 int main(int argc, char *argv[])
 {
     int choix = 0;
     while (choix == 0)
     {
-        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage, les déplacements et les animations du joueur.\n4 : Tester l'initialisation d'un bloc.\n5 : Tester l'affichage d'un bloc\n6 : Tester la conversion d'un tableau de block.\n7 : Tester la gestion fichier\n");
+        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage, les déplacements et les animations du joueur.\n4 : Tester l'initialisation d'un bloc.\n5 : Tester l'affichage d'un bloc\n6 : Tester la conversion d'un tableau de block.\n7 : Tester la gestion fichier.\n8 : Tester les collisions.\n");
         printf(">>> ");
         scanf("%i", &choix);
         getchar();
@@ -245,6 +266,10 @@ int main(int argc, char *argv[])
             break;
         case 7:
             test_txt_to_int();
+            choix = 0;
+            break;
+        case 8:
+            test_collision();
             choix = 0;
             break;
         default:
