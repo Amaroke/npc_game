@@ -77,6 +77,7 @@ int main(void)
     }
     while (!game.gameover) //Tant que le jeu n'est pas fini.
     {
+        printf("%i", game.vortex->current_frame);
         movement_player(&event, &game);
         update_data(game);
         refresh_graphics(renderer, &game, &ressources);

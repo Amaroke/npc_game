@@ -11,6 +11,7 @@ void init_ressources(SDL_Renderer *renderer, ressources_t *ressources)
 {
 	ressources->background = load_picture("ressources/background.bmp", renderer, 0, 0, 0);
 	ressources->player = load_picture("ressources/player_sprite/player.bmp", renderer, 0, 0, 0);
+	ressources->vortex = load_picture("ressources/vortex_sprite/vortex.bmp", renderer, 0, 0, 0);
 	ressources->dark_oak = load_picture("ressources/block_sprite/dark_oak.bmp", renderer, 0, 0, 0);
 	ressources->ice = load_picture("ressources/block_sprite/ice.bmp", renderer, 0, 0, 0);
 	ressources->light_oak = load_picture("ressources/block_sprite/light_oak.bmp", renderer, 0, 0, 0);

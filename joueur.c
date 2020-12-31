@@ -19,7 +19,7 @@ void init_player(player_t *player)
 {
     player->orientation = ORIENTATION_DOWN;
     player->last_orientation = ORIENTATION_DOWN;
-    for (int i = 0; i < 4; ++i)
+    for (int i = 0; i < NB_ANIMATIONS; ++i)
     {
         player->animation[i] = array_sprite_down[i];
         player->animation[i + 4] = array_sprite_right[i];
@@ -28,7 +28,7 @@ void init_player(player_t *player)
     }
     player->animation_speed = 10;
     player->current_frame = 0;
-    player->frames = 4;
+    player->frames = NB_ANIMATIONS;
     player->frame = 0;
     player->is_moving = false;
 }

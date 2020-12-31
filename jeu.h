@@ -13,18 +13,18 @@
 #include "ressources.h"
 #include "joueur.h"
 #include "terrain.h"
+#include "vortex.h"
 
 typedef struct game_s
 {
-    bool gameover;							/*!< Champ indiquant si l'on est à la fin du jeu.*/
-	int etat_partie;						/*!< État de la partie. */
-	int score;								/*!< Score.*/
-	int timer;	                            /*!< Le temps.*/
-    player_t *player;						/*!< Le joueur.*/
-	block_t **block;							/*!< Un bloc.*/	
+	bool gameover;	  /*!< Champ indiquant si l'on est à la fin du jeu.*/
+	int etat_partie;  /*!< État de la partie. */
+	int score;		  /*!< Score.*/
+	int timer;		  /*!< Le temps.*/
+	player_t *player; /*!< Le joueur.*/
+	vortex_t *vortex; /*!< Le vortex.*/
+	block_t **block;  /*!< Un bloc.*/
 } game_t;
-
-
 
 /**
  *\brief La fonction initialise le monde.

@@ -25,6 +25,7 @@ typedef struct ressources_s
 {
 	SDL_Texture *background; /*!<Texture liée à l'image du sol.*/
 	SDL_Texture *player;	 /*!<Texture liée au joueur.*/
+	SDL_Texture *vortex;	 /*!<Texture liée au vortex.*/
 	SDL_Texture *dark_oak;	 /*!<Texture en bois de chêne noir.*/
 	SDL_Texture *grass;		 /*!<Texture d'herbe.*/
 	SDL_Texture *stone;		 /*!<Texture de pierre.*/
