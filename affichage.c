@@ -9,10 +9,10 @@
 
 void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, game_t *game)
 {
+    init_ttf();
     init_sdl(window, renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
     init_ressources(*renderer, ressources);
     init_data(game);
-    init_ttf();
 }
 
 void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources, game_t *game)

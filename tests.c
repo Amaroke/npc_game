@@ -192,7 +192,7 @@ void test_int_to_block()
 void test_txt_to_int()
 {
     int **res = malloc(sizeof(int) * 18 * 32);
-    res = txt_to_int("test.txt");
+    res = txt_to_int("ressources/levels/test.txt");
     for (int i = 0; i < 18; i++)
     {
         for (int j = 0; j < 32; j++)
@@ -213,7 +213,7 @@ void test_collision()
     SDL_Event event;
     init(&window, &renderer, &ressources, &game);
     printf("Cliquer sur la croix pour fermer la fenêtre\n");
-    int_to_block(game.block, txt_to_int("test_collisions.txt"));
+    int_to_block(game.block, txt_to_int("ressources/levels/test_collisions.txt"));
     while (!game.gameover) //Tant que le jeu n'est pas fini.
     {
         movement_player(&event, &game);
