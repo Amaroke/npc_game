@@ -10,8 +10,12 @@
 void movement_player(SDL_Event *event, game_t *game)
 {
 
+
     while (SDL_PollEvent(event))
     {
+
+        sprite_t *copy = copy_sprite(&game->player->sprite);
+
         if (event->type == SDL_QUIT)
         {
             game->gameover = 1;
@@ -35,7 +39,8 @@ void movement_player(SDL_Event *event, game_t *game)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_RIGHT;
                 game->player->orientation = ORIENTATION_RIGHT + game->player->current_frame;
-                if (!bloc_collide(&game->player->sprite, game->block))
+                copy->x += MOVING_STEP;
+                if (!bloc_collide(copy, game->block))
                 {
                     game->player->sprite.x += MOVING_STEP;
                 }
@@ -46,7 +51,8 @@ void movement_player(SDL_Event *event, game_t *game)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_LEFT;
                 game->player->orientation = ORIENTATION_LEFT + game->player->current_frame;
-                if (!bloc_collide(&game->player->sprite, game->block))
+                copy->x -= MOVING_STEP;
+                if (!bloc_collide(copy, game->block))
                 {
                     game->player->sprite.x -= MOVING_STEP;
                 }
@@ -57,7 +63,8 @@ void movement_player(SDL_Event *event, game_t *game)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_DOWN;
                 game->player->orientation = ORIENTATION_DOWN + game->player->current_frame;
-                if (!bloc_collide(&game->player->sprite, game->block))
+                copy->y += MOVING_STEP;
+                if (!bloc_collide(copy, game->block))
                 {
                     game->player->sprite.y += MOVING_STEP;
                 }
@@ -68,7 +75,8 @@ void movement_player(SDL_Event *event, game_t *game)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_UP;
                 game->player->orientation = ORIENTATION_UP + game->player->current_frame;
-                if (!bloc_collide(&game->player->sprite, game->block))
+                copy->y -= MOVING_STEP;
+                if (!bloc_collide(copy, game->block))
                 {
                     game->player->sprite.y -= MOVING_STEP;
                 }

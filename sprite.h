@@ -34,4 +34,10 @@ typedef struct sprite_s
 */
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h, int s, bool is_visible);
 
+/**
+ *\brief La fonction copie un sprite.
+ *\param sprite Le sprite à initialiser.
+ */
+sprite_t *copy_sprite(sprite_t *sprite);
+
 #endif

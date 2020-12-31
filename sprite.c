@@ -16,3 +16,10 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h, int s, bool is_vi
     sprite->s = s;
     sprite->is_visible = is_visible;
 }
+
+sprite_t *copy_sprite(sprite_t *sprite)
+{
+    sprite_t *copy = malloc(sizeof(sprite_t));
+    init_sprite(copy, sprite->x, sprite->y, sprite->w, sprite->h, sprite->s, sprite->is_visible);
+    return copy;
+}
