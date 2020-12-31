@@ -15,6 +15,7 @@
 
 #include <SDL2/SDL.h>
 #include "fonctions_SDL.h"
+#include "fonctions_ttf.h"
 
 /**
  *\struct texture_t
@@ -24,15 +25,16 @@ typedef struct ressources_s
 {
 	SDL_Texture *background; /*!<Texture liée à l'image du sol.*/
 	SDL_Texture *player;	 /*!<Texture liée au joueur.*/
-	SDL_Texture *dark_oak;		 /*!<Texture en bois de chêne noir.*/
-	SDL_Texture *grass;			 /*!<Texture d'herbe.*/
-	SDL_Texture *stone;			 /*!<Texture de pierre.*/
-	SDL_Texture *ice;			 /*!<Texture de glace.*/
-	SDL_Texture *sand;			 /*!<Texture de sable.*/
-	SDL_Texture *light_oak;		 /*!<Texture en bois de chêne.*/
-	SDL_Texture *magma;			 /*!<Texture de magma.*/
-	SDL_Texture *wall;			 //*!<Texture en pierre taillée.*/
-	SDL_Texture *water;			 /*!<Texture de l'eau.*/
+	SDL_Texture *dark_oak;	 /*!<Texture en bois de chêne noir.*/
+	SDL_Texture *grass;		 /*!<Texture d'herbe.*/
+	SDL_Texture *stone;		 /*!<Texture de pierre.*/
+	SDL_Texture *ice;		 /*!<Texture de glace.*/
+	SDL_Texture *sand;		 /*!<Texture de sable.*/
+	SDL_Texture *light_oak;	 /*!<Texture en bois de chêne.*/
+	SDL_Texture *magma;		 /*!<Texture de magma.*/
+	SDL_Texture *wall;		 //*!<Texture en pierre taillée.*/
+	SDL_Texture *water;		 /*!<Texture de l'eau.*/
+	TTF_Font *font;			 /*!<Texture de la police d'écriture.*/
 } ressources_t;
 
 /**

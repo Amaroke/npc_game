@@ -17,6 +17,7 @@ void init_ressources(SDL_Renderer *renderer, ressources_t *ressources)
 	ressources->magma = load_picture("ressources/block_sprite/magma.bmp", renderer, 0, 0, 0);
 	ressources->wall = load_picture("ressources/block_sprite/wall.bmp", renderer, 0, 0, 0);
 	ressources->water = load_picture("ressources/block_sprite/water.bmp", renderer, 0, 0, 0);
+	ressources->font = load_font("ressources/font/font.ttf", 16);
 }
 
 void clean_ressources(ressources_t *ressources)
@@ -29,4 +30,5 @@ void clean_ressources(ressources_t *ressources)
 	clean_texture(ressources->magma);	  // Identifiant : 3
 	clean_texture(ressources->wall);	  // Identifiant : 1
 	clean_texture(ressources->water);	  // identifiant : 2
+	clean_font(ressources->font);
 }

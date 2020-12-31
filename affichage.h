@@ -13,6 +13,7 @@
 #include "ressources.h"
 #include "jeu.h"
 #include "sprite.h"
+#include "fonctions_ttf.h"
 
 /**
  *\brief La fonction initialise le jeu.
