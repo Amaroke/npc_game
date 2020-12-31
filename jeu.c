@@ -34,18 +34,6 @@ void update_data(game_t game)
     {
         game.vortex->current_frame = 0;
     }
-    for (int i = 0; i < ROW; ++i)
-    {
-        for (int j = 0; j < COLUMN; ++j)
-        {
-            if (game.block[i][j].collision)
-            {
-                if(sprite_collide(&game.player->sprite, &game.block[i][j].sprite)){
-                    printf("COLLISION\n");
-                }
-            }
-        }
-    }
 }
 
 void clean_data(game_t *game)

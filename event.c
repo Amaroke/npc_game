@@ -35,7 +35,6 @@ void movement_player(SDL_Event *event, game_t *game)
         {
             if (event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d)
             {
-                printf("La touche ➡️ est appuyée ! \n");
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_RIGHT;
                 game->player->orientation = ORIENTATION_RIGHT + game->player->current_frame;
@@ -47,7 +46,6 @@ void movement_player(SDL_Event *event, game_t *game)
             }
             else if (event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q)
             {
-                printf("La touche ⬅️ est appuyée ! \n");
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_LEFT;
                 game->player->orientation = ORIENTATION_LEFT + game->player->current_frame;
@@ -59,7 +57,6 @@ void movement_player(SDL_Event *event, game_t *game)
             }
             else if (event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s)
             {
-                printf("La touche ⬇️ est appuyée ! \n");
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_DOWN;
                 game->player->orientation = ORIENTATION_DOWN + game->player->current_frame;
@@ -71,7 +68,6 @@ void movement_player(SDL_Event *event, game_t *game)
             }
             else if (event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z)
             {
-                printf("La touche ⬆️ est appuyée ! \n");
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_UP;
                 game->player->orientation = ORIENTATION_UP + game->player->current_frame;
@@ -88,9 +84,6 @@ void movement_player(SDL_Event *event, game_t *game)
                 game->player->current_frame = 0;
                 game->player->frame = 0;
             }
-
-            printf("orientation = %i\n", game->player->orientation);
-            printf("%i, %i\n", game->player->sprite.x, game->player->sprite.y);
             if (event->key.keysym.sym == SDLK_ESCAPE)
             {
                 game->gameover = true;

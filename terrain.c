@@ -51,7 +51,7 @@ int **txt_to_int(char *fichier)
     file = fopen(fichier, "r");
     if (file == NULL)
     {
-        printf("Erreur fichier");
+        printf("\nErreur fichier !\n");
     }
     else
     {

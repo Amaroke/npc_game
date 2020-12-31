@@ -9,7 +9,7 @@
 
 // Constantes nb animation
 
-SDL_Rect array_sprite[NB_ANIMATIONS_VORTEX] = {{0, 0, 32, 32}, {0, 32, 32, 32}, {0, 64, 32, 32}, {0, 96, 32, 32}, {32, 0, 32, 32}, {32, 32, 32, 32}, {32, 64, 32, 32}, {32, 96, 32, 32}};
+SDL_Rect array_sprite[NB_ANIMATIONS_VORTEX] = {{0, 0, 32, 32}, {32, 0, 32, 32}, {64, 0, 32, 32}, {96, 0, 32, 32}, {0, 32, 32, 32}, {32, 32, 32, 32}, {64, 32, 32, 32}, {96, 32, 32, 32}};
 
 void init_vortex(vortex_t *vortex)
 {

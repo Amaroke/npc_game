@@ -34,20 +34,20 @@ int main(void)
     update_screen(renderer);
     while (choix == 0)
     {
-        printf("\nWelcome to NPC GAME\n");
-        printf("\nSelect your level\n");
-        printf("\nLevel 1\n");
-        printf("\nLevel 2\n");
-        printf("\nLevel 3\n");
-        printf("\nSelect 0 to exit\n");
-        printf("\n>>> ");
+        printf("Welcome to NPC GAME\n");
+        printf("Select your level\n");
+        printf("Level 1\n");
+        printf("Level 2\n");
+        printf("Level 3\n");
+        printf("Select 0 to exit\n");
+        printf(">>> ");
         scanf("%i", &choix);
         getchar();
 
         switch (choix)
         {
         case 0:
-            printf("Exiting ...");
+            printf("\nExiting ...\n");
             return EXIT_SUCCESS;
             break;
         case 1:
@@ -71,13 +71,12 @@ int main(void)
 
         default:
             choix = 0;
-            printf("Saisie invalide");
+            printf("\nSaisie invalide\n");
             break;
         }
     }
     while (!game.gameover) //Tant que le jeu n'est pas fini.
     {
-        printf("%i", game.vortex->current_frame);
         movement_player(&event, &game);
         update_data(game);
         refresh_graphics(renderer, &game, &ressources);
