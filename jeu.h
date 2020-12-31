@@ -12,6 +12,7 @@
 #include "sprite.h"
 #include "ressources.h"
 #include "joueur.h"
+#include "terrain.h"
 
 typedef struct game_s
 {
@@ -42,6 +43,5 @@ void update_data(game_t game);
  *\param game Le jeu.
 */
 void clean_data(game_t *game);
-
 
 #endif

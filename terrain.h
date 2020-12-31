@@ -10,9 +10,7 @@
 
 #include <stdbool.h>
 #include <SDL2/SDL.h>
-#include "affichage.h"
-
-
+#include "sprite.h"
 
 typedef struct block_s
 {
@@ -58,6 +56,6 @@ bool sprite_collide(sprite_t *player, sprite_t *block);
  * \brief Test de la collision entre le joueur et le terrain.
  * \param game Le jeu.
  **/
-bool bloc_collide(sprite_t *player, block_t **block);
+bool bloc_collide(sprite_t *player, block_t  **block);
 
 #endif

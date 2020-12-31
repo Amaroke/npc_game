@@ -6,6 +6,7 @@
 */
 
 #include "terrain.h"
+#include "fonctions_SDL.h"
 
 void init_block(block_t *block, int x, int y, int h, int w, bool is_visible, int effet, bool collision)
 {

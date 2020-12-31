@@ -32,11 +32,11 @@ void movement_player(SDL_Event *event, game_t *game)
             if (event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d)
             {
                 printf("La touche ➡️ est appuyée ! \n");
-                if (!bloc_collide(game))
+                game->player->is_moving = true;
+                game->player->last_orientation = ORIENTATION_RIGHT;
+                game->player->orientation = ORIENTATION_RIGHT + game->player->current_frame;
+                if (!bloc_collide(&game->player->sprite, game->block))
                 {
-                    game->player->is_moving = true;
-                    game->player->last_orientation = ORIENTATION_RIGHT;
-                    game->player->orientation = ORIENTATION_RIGHT + game->player->current_frame;
                     game->player->sprite.x += MOVING_STEP;
                 }
             }
@@ -46,7 +46,10 @@ void movement_player(SDL_Event *event, game_t *game)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_LEFT;
                 game->player->orientation = ORIENTATION_LEFT + game->player->current_frame;
-                game->player->sprite.x -= MOVING_STEP;
+                if (!bloc_collide(&game->player->sprite, game->block))
+                {
+                    game->player->sprite.x -= MOVING_STEP;
+                }
             }
             else if (event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s)
             {
@@ -54,7 +57,10 @@ void movement_player(SDL_Event *event, game_t *game)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_DOWN;
                 game->player->orientation = ORIENTATION_DOWN + game->player->current_frame;
-                game->player->sprite.y += MOVING_STEP;
+                if (!bloc_collide(&game->player->sprite, game->block))
+                {
+                    game->player->sprite.y += MOVING_STEP;
+                }
             }
             else if (event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z)
             {
@@ -62,7 +68,10 @@ void movement_player(SDL_Event *event, game_t *game)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_UP;
                 game->player->orientation = ORIENTATION_UP + game->player->current_frame;
-                game->player->sprite.y -= MOVING_STEP;
+                if (!bloc_collide(&game->player->sprite, game->block))
+                {
+                    game->player->sprite.y -= MOVING_STEP;
+                }
             }
             else
             {
