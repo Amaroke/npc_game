@@ -38,7 +38,7 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
                 copy->x += MOVING_STEP;
                 if (!bloc_collide(copy, game->block))
                 {
-                    game->player->sprite.x += MOVING_STEP;
+                    game->player->sprite.x += MOVING_STEP * game->player->sprite.s;
                 }
             }
             else if (event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q)
@@ -49,7 +49,7 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
                 copy->x -= MOVING_STEP;
                 if (!bloc_collide(copy, game->block))
                 {
-                    game->player->sprite.x -= MOVING_STEP;
+                    game->player->sprite.x -= MOVING_STEP * game->player->sprite.s;
                 }
             }
             else if (event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s)
@@ -60,7 +60,7 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
                 copy->y += MOVING_STEP;
                 if (!bloc_collide(copy, game->block))
                 {
-                    game->player->sprite.y += MOVING_STEP;
+                    game->player->sprite.y += MOVING_STEP * game->player->sprite.s;
                 }
             }
             else if (event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z)
@@ -71,7 +71,7 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
                 copy->y -= MOVING_STEP;
                 if (!bloc_collide(copy, game->block))
                 {
-                    game->player->sprite.y -= MOVING_STEP;
+                    game->player->sprite.y -= MOVING_STEP * game->player->sprite.s;
                 }
             }
             else

@@ -11,6 +11,7 @@
 #include <stdbool.h>
 #include <SDL2/SDL.h>
 #include "sprite.h"
+#include "joueur.h"
 
 typedef struct block_s
 {
@@ -38,6 +39,9 @@ void init_block(block_t *block, int x, int y, int h, int w, bool is_visible, int
  * \param tab_int Le tableau d'int.
  **/
 void int_to_block(block_t **tab_block, int **tab_int);
+
+
+void apply_block_effect(player_t *player, block_t **block);
 
 /**
  * \brief Conversion du contenu d'un fichier txt en un tableau d'entiers.

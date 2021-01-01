@@ -12,7 +12,7 @@ void init_ressources(SDL_Renderer *renderer, ressources_t *ressources)
 	ressources->background = load_picture("ressources/background.bmp", renderer, 0, 0, 0);
 	ressources->player = load_picture("ressources/player_sprite/player.bmp", renderer, 0, 0, 0);
 	ressources->vortex = load_picture("ressources/vortex_sprite/vortex.bmp", renderer, 0, 0, 0);
-	ressources->dark_oak = load_picture("ressources/block_sprite/dark_oak.bmp", renderer, 0, 0, 0);
+	ressources->health = load_picture("ressources/block_sprite/health.bmp", renderer, 0, 0, 0);
 	ressources->ice = load_picture("ressources/block_sprite/ice.bmp", renderer, 0, 0, 0);
 	ressources->light_oak = load_picture("ressources/block_sprite/light_oak.bmp", renderer, 0, 0, 0);
 	ressources->magma = load_picture("ressources/block_sprite/magma.bmp", renderer, 0, 0, 0);
@@ -25,7 +25,7 @@ void clean_ressources(ressources_t *ressources)
 {
 	clean_texture(ressources->background);
 	clean_texture(ressources->player);
-	clean_texture(ressources->dark_oak);  // Identifiant : 6
+	clean_texture(ressources->health);	  // Identifiant : 6
 	clean_texture(ressources->ice);		  // Identifiant : 4
 	clean_texture(ressources->light_oak); // Identifiant : 5
 	clean_texture(ressources->magma);	  // Identifiant : 3

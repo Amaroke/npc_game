@@ -31,6 +31,7 @@ void init_player(player_t *player)
     player->frames = NB_ANIMATIONS;
     player->frame = 0;
     player->is_moving = false;
+    player->health_point = 1000;
 }
 
 

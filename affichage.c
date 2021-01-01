@@ -76,7 +76,7 @@ void apply_block(SDL_Renderer *renderer, ressources_t ressources, block_t **bloc
                     apply_texture(ressources.light_oak, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
                     break;
                 case 6:
-                    apply_texture(ressources.dark_oak, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
+                    apply_texture(ressources.health, renderer, rectangle, blocks[i][j].sprite.x, blocks[i][j].sprite.y);
                     break;
                 }
             }

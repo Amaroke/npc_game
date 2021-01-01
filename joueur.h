@@ -16,6 +16,7 @@
 #define ORIENTATION_UP 8
 #define ORIENTATION_LEFT 12
 #define NB_ANIMATIONS 4
+#define HP_MAX 1000
 
 #include <SDL2/SDL.h>
 #include "sprite.h"
@@ -31,6 +32,7 @@ typedef struct player_s
     int frames;             /*!<Le nombre de sprites que compose une animation complète.*/
     int frame;              /*!<Le calcul de la frame suivante.*/
     bool is_moving;         /*!<Le joueur se déplace-t-il ?*/
+    int health_point;     /*!<Les points de vie du joueur*/
 } player_t;
 
 /**

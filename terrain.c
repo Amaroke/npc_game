@@ -33,6 +33,59 @@ void int_to_block(block_t **tab_block, int **tab_int)
     }
 }
 
+void apply_block_effect(player_t *player, block_t **block)
+{
+    for (int i = 0; i < ROW; ++i)
+    {
+        for (int j = 0; j < COLUMN; ++j)
+        {
+            if (sprite_collide(&player->sprite, &block[i][j].sprite))
+            {
+                switch (block[i][j].effet)
+                {
+                case 0: // case sans effet
+                    player->sprite.s = 2;
+                    printf("rien\n");
+                    break;
+
+                case 2: // case d'eau, ralenti les déplacements.
+                    player->sprite.s = 1;
+                    printf("eau\n");
+                    break;
+                
+
+                case 3: // blesse le joueur
+                    player->sprite.s = 2;
+                    printf("HP : %i", player->health_point);
+                    player->health_point--;
+                    printf("lave\n");
+                    break;
+                
+                case 4: // accélère le joueur
+                    player->sprite.s = 4;
+                    printf("glace\n");
+                    break;
+
+                case 5: // Pas d'effet
+                    player->sprite.s = 2;
+                    printf("bois de chêne\n");
+                    break;
+
+                case 6: // Régénère le joueur
+                    player->sprite.s = 2;
+                    if(player->health_point < HP_MAX)
+                    {
+                        printf("HP : %i", player->health_point);
+                        player->health_point++;
+                    }
+                    printf("Soin\n");
+                    break;        
+                }
+            }
+        }
+    }
+}
+
 int **txt_to_int(char *fichier)
 {
     FILE *file;

@@ -35,8 +35,18 @@ void update_data(game_t *game)
         game->vortex->current_frame = 0;
     }
     if(vortex_collide(game->vortex, &game->player->sprite)) {
+        printf("Level Clear\n");
+        pause(1000);
         game->gameover = true;
     }
+    if(game->player->health_point <= 0)
+    {
+        game->player->sprite.is_visible = false;
+        printf("Game Over\n");
+        pause(1000);
+        game->gameover = true;
+    }
+    apply_block_effect(game->player, game->block);
 }
 
 void clean_data(game_t *game)
