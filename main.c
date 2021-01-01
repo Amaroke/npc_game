@@ -26,52 +26,22 @@ int main(void)
     game_t game;
     SDL_Event event;
 
-    int choix = 0;
+    int choix = -1;
     init(&window, &renderer, &ressources, &game);
     char *str = malloc(sizeof(char) * 20); //On réserve une chaine de 20 caractères pour le score.
-    sprintf(str, "NPC TEST");     //On réserve un emplacement à la valeur du score.
+    sprintf(str, "NPC Game");     //On réserve un emplacement à la valeur du score.
     //apply_text(renderer, 5, 5, 50, 30, str, ressources.font);
     update_screen(renderer);
-    while (choix == 0)
+    while (choix !=0 && !game.gameover)
     {
-        printf("Welcome to NPC GAME\n");
-        printf("Select your level\n");
-        printf("Level 1\n");
-        printf("Level 2\n");
-        printf("Level 3\n");
-        printf("Select 0 to exit\n");
-        printf(">>> ");
-        scanf("%i", &choix);
-        getchar();
+        choix = choix_menu(&event, window, &game);
 
         switch (choix)
         {
-        case 0:
-            printf("\nExiting ...\n");
-            return EXIT_SUCCESS;
-            break;
         case 1:
 
-            int_to_block(game.block, txt_to_int("ressources/levels/level_1.txt"));
-            break;
-
-        case 2:
-
-            int_to_block(game.block, txt_to_int("ressources/levels/level_2.txt"));
-            break;
-
-        case 3:
-
-            int_to_block(game.block, txt_to_int("ressources/levels/level_3.txt"));
-            break;
-
-        case 4:
             int_to_block(game.block, txt_to_int("ressources/levels/test_collisions.txt"));
-            break;
-
-        default:
             choix = 0;
-            printf("\nSaisie invalide\n");
             break;
         }
     }

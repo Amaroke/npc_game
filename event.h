@@ -20,4 +20,5 @@
 */
 void movement_player(SDL_Event *event, game_t *game, SDL_Window *window);
 
+int choix_menu(SDL_Event *event,SDL_Window *window,game_t *game);
 #endif

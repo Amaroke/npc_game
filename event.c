@@ -113,3 +113,40 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
         }
     }
 }
+
+int choix_menu(SDL_Event *event, SDL_Window *window, game_t *game)
+{
+    while (SDL_PollEvent(event))
+    {
+        if (event->type == SDL_QUIT)
+        {
+            game->gameover = true;
+        }
+        if (event->type == SDL_KEYDOWN)
+        {
+            if (event->key.keysym.sym == SDLK_1 || event->key.keysym.sym == SDLK_KP_1)
+            {
+                return 1;
+            }
+        }
+        if (event->key.keysym.sym == SDLK_ESCAPE)
+        {
+            game->gameover = true;
+        }
+        if (event->key.keysym.sym == SDLK_F11)
+        {
+            if (!game->fullscreen)
+            {
+                SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+                game->fullscreen = true;
+            }
+            else
+            {
+                SDL_SetWindowFullscreen(window, 0);
+                game->fullscreen = false;
+            }
+        }
+    }
+
+    return -1;
+}
