@@ -24,12 +24,31 @@ void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources,
 
 void refresh_graphics(SDL_Renderer *renderer, game_t *game, ressources_t *ressources)
 {
-    clear_renderer(renderer);
-    apply_background(renderer, ressources);
-    apply_block(renderer, *ressources, game->block);
-    apply_sprite(renderer, ressources->vortex, &game->vortex->sprite, game->vortex->animation[game->vortex->current_frame/5], game->vortex->sprite.x, game->vortex->sprite.y);
-    apply_sprite(renderer, ressources->player, &game->player->sprite, game->player->animation[game->player->orientation], game->player->sprite.x, game->player->sprite.y);
-    update_screen(renderer);
+    if(game->etat_partie == 0)
+    {
+        clear_renderer(renderer);
+        apply_background(renderer, ressources);
+        apply_block(renderer, *ressources, game->block);
+        apply_sprite(renderer, ressources->vortex, &game->vortex->sprite, game->vortex->animation[game->vortex->current_frame/5], game->vortex->sprite.x, game->vortex->sprite.y);
+        apply_sprite(renderer, ressources->player, &game->player->sprite, game->player->animation[game->player->orientation], game->player->sprite.x, game->player->sprite.y);
+        update_screen(renderer);
+    }
+    else if(game->etat_partie == 1)
+    {
+       
+        char *str = malloc(sizeof(char) * 20); //On réserve une chaine de 20 caractères pour le score.
+        sprintf(str, "Level Clear");     //On réserve un emplacement à la valeur du score.
+        apply_text(renderer, 250, SCREEN_HEIGHT/2 + (-100), 500, 200, str, ressources->font, 9, 210, 255);
+        update_screen(renderer);
+    }
+    else if(game->etat_partie == 2)
+    {
+       
+        char *str = malloc(sizeof(char) * 20); //On réserve une chaine de 20 caractères pour le score.
+        sprintf(str, "Game Over");     //On réserve un emplacement à la valeur du score.
+        apply_text(renderer, 250, SCREEN_HEIGHT/2 + (-100), 500, 200, str, ressources->font,  255, 0, 62  );
+        update_screen(renderer);
+    }
 }
 
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite, SDL_Rect src, int x, int y)

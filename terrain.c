@@ -45,41 +45,45 @@ void apply_block_effect(player_t *player, block_t **block)
                 {
                 case 0: // case sans effet
                     player->sprite.s = 2;
-                    printf("rien\n");
+                    player->animation_speed = 10;
+
                     break;
 
                 case 2: // case d'eau, ralenti les déplacements.
                     player->sprite.s = 1;
-                    printf("eau\n");
+                    player->animation_speed = 20;
+
                     break;
-                
 
                 case 3: // blesse le joueur
                     player->sprite.s = 2;
-                    printf("HP : %i", player->health_point);
+                    player->animation_speed = 10;
+
                     player->health_point--;
-                    printf("lave\n");
+
                     break;
-                
+
                 case 4: // accélère le joueur
                     player->sprite.s = 4;
-                    printf("glace\n");
+                    player->animation_speed = 5;
+
                     break;
 
                 case 5: // Pas d'effet
                     player->sprite.s = 2;
-                    printf("bois de chêne\n");
+                    player->animation_speed = 10;
+
                     break;
 
                 case 6: // Régénère le joueur
                     player->sprite.s = 2;
-                    if(player->health_point < HP_MAX)
+                    player->animation_speed = 10;
+                    if (player->health_point < HP_MAX)
                     {
-                        printf("HP : %i", player->health_point);
                         player->health_point++;
                     }
-                    printf("Soin\n");
-                    break;        
+
+                    break;
                 }
             }
         }

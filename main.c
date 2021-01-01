@@ -30,7 +30,7 @@ int main(void)
     init(&window, &renderer, &ressources, &game);
     char *str = malloc(sizeof(char) * 20); //On réserve une chaine de 20 caractères pour le score.
     sprintf(str, "NPC TEST");     //On réserve un emplacement à la valeur du score.
-    apply_text(renderer, 5, 5, 50, 30, str, ressources.font);
+    //apply_text(renderer, 5, 5, 50, 30, str, ressources.font);
     update_screen(renderer);
     while (choix == 0)
     {
@@ -77,13 +77,11 @@ int main(void)
     }
     while (game.gameover == false) //Tant que le jeu n'est pas fini.
     {
-        printf("%i\n", game.gameover);
-        movement_player(&event, &game, &window);
+        movement_player(&event, &game, window);
         update_data(&game);
         refresh_graphics(renderer, &game, &ressources);
         pause(10);
     }
     clean(window, renderer, &ressources, &game);
-    printf("Test d'affichage réussi !\n");
     return EXIT_SUCCESS;
 }

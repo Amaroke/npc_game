@@ -230,7 +230,7 @@ int main(void)
     int choix = 0;
     while (choix == 0)
     {
-        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage et les animations du joueur.\n4 : Tester l'initialisation d'un bloc.\n5 : Tester l'affichage d'un bloc\n6 : Tester la conversion d'un tableau de block.\n7 : Tester la gestion fichier.\n8 : Tester les collisions.\n");
+        printf("\nMenu test affichage\n0 : Quitter.\n1 : Tester l'initialisation d'un sprite.\n2 : Tester l'affichage d'un fond et d'un sprite de joueur.\n3 : Tester l'affichage et les animations du joueur.\n4 : Tester l'initialisation d'un bloc.\n5 : Tester l'affichage d'un bloc\n6 : Tester la conversion d'un tableau de block.\n7 : Tester la gestion fichier.\n8 : Tester les collisions et interactions avec les blocs.\n");
         printf(">>> ");
         scanf("%i", &choix);
         getchar();

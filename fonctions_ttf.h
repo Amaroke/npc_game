@@ -36,7 +36,7 @@ TTF_Font *load_font(const char *path, int font_size);
  * \param text le texte à afficher.
  * \param font la police.
 */
-void apply_text(SDL_Renderer *renderer, int x, int y, int w, int h, const char *text, TTF_Font *font);
+void apply_text(SDL_Renderer *renderer, int x, int y, int w, int h, const char *text, TTF_Font *font, int r, int g, int b);
 
 /**
  * \brief La fonction libère l'espace mémoire alloué au texte.

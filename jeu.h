@@ -18,7 +18,8 @@
 typedef struct game_s
 {
 	bool gameover;	  /*!< Champ indiquant si l'on est à la fin du jeu.*/
-	bool fullscreen;  /*!< État de la partie. */
+	bool fullscreen;  /*!< Si le jeu est en full screen ou non. */
+	int etat_partie;  /*!< État de la partie. 0 = en cours 1 = gagné 2 = perdu.*/
 	int score;		  /*!< Score.*/
 	int timer;		  /*!< Le temps.*/
 	player_t *player; /*!< Le joueur.*/

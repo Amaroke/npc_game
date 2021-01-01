@@ -11,10 +11,11 @@ void init_data(game_t *game)
 {
     // On initialise toutes les deonnées de base du monde.
     game->gameover = false;
-    game->timer = 0;
+    game->timer = 300;
     game->score = 0;
     game->fullscreen = false;
     game->player = malloc(sizeof(player_t));
+    game->etat_partie = 0;
     init_player(game->player);
     init_sprite(&game->player->sprite, 50, 50, NPC_TEST_WIDTH / 4, NPC_TEST_HEIGHT / 4, 1, true);
     game->vortex = malloc(sizeof(vortex_t));
@@ -35,16 +36,23 @@ void update_data(game_t *game)
         game->vortex->current_frame = 0;
     }
     if(vortex_collide(game->vortex, &game->player->sprite)) {
-        printf("Level Clear\n");
-        pause(1000);
-        game->gameover = true;
+        
+        game->etat_partie = 1;
+        game->timer--;
+        if (game->timer == 0)
+        {
+            game->gameover = true;
+        }  
     }
     if(game->player->health_point <= 0)
     {
         game->player->sprite.is_visible = false;
-        printf("Game Over\n");
-        pause(1000);
-        game->gameover = true;
+        game->etat_partie = 2;
+        game->timer--;
+        if (game->timer == 0)
+        {
+            game->gameover = true;
+        }  
     }
     apply_block_effect(game->player, game->block);
 }
