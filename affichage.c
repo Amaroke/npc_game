@@ -7,12 +7,12 @@
 
 #include "affichage.h"
 
-void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, game_t *game)
+void init(SDL_Window **window, SDL_Renderer **renderer, ressources_t *ressources, game_t *game) // paramètre game inutile
 {
     init_ttf();
     init_sdl(window, renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
     init_ressources(*renderer, ressources);
-    init_data(game);
+    //init_data(game);
 }
 
 void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources, game_t *game)
@@ -24,7 +24,7 @@ void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources,
 
 void refresh_graphics(SDL_Renderer *renderer, game_t *game, ressources_t *ressources)
 {
-    if(game->etat_partie == 0)
+    if(game->etat_partie == LEVEL_1)
     {
         clear_renderer(renderer);
         apply_background(renderer, ressources);
@@ -33,19 +33,24 @@ void refresh_graphics(SDL_Renderer *renderer, game_t *game, ressources_t *ressou
         apply_sprite(renderer, ressources->player, &game->player->sprite, game->player->animation[game->player->orientation], game->player->sprite.x, game->player->sprite.y);
         update_screen(renderer);
     }
-    else if(game->etat_partie == 1)
+    else if(game->etat_partie == LEVEL_2)
     {
-       
-        char *str = malloc(sizeof(char) * 20); //On réserve une chaine de 20 caractères pour le score.
-        sprintf(str, "Level Clear");     //On réserve un emplacement à la valeur du score.
+        clear_renderer(renderer);
+        apply_background(renderer, ressources);
+        apply_block(renderer, *ressources, game->block);
+        apply_sprite(renderer, ressources->vortex, &game->vortex->sprite, game->vortex->animation[game->vortex->current_frame/5], game->vortex->sprite.x, game->vortex->sprite.y);
+        apply_sprite(renderer, ressources->player, &game->player->sprite, game->player->animation[game->player->orientation], game->player->sprite.x, game->player->sprite.y);
+        update_screen(renderer);
+    }
+    else if(game->etat_partie == WIN)
+    {     
+        char str[] = "Level Clear";
         apply_text(renderer, 250, SCREEN_HEIGHT/2 + (-100), 500, 200, str, ressources->font, 9, 210, 255);
         update_screen(renderer);
     }
-    else if(game->etat_partie == 2)
+    else if(game->etat_partie == LOOSE)
     {
-       
-        char *str = malloc(sizeof(char) * 20); //On réserve une chaine de 20 caractères pour le score.
-        sprintf(str, "Game Over");     //On réserve un emplacement à la valeur du score.
+        char str[] = "Game Over"; 
         apply_text(renderer, 250, SCREEN_HEIGHT/2 + (-100), 500, 200, str, ressources->font,  255, 0, 62  );
         update_screen(renderer);
     }

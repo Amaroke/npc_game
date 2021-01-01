@@ -15,6 +15,9 @@
 #include "jeu.h"
 #include "event.h"
 
+static const int TITLE_WIDTH = 500;
+static const int TITLE_HEIGHT = 60;
+
 /**
  *\brief Programme principal qui implémente la boucle du jeu.
 */
@@ -27,20 +30,27 @@ int main(void)
     SDL_Event event;
 
     int choix = -1;
-    init(&window, &renderer, &ressources, &game);
-    char *str = malloc(sizeof(char) * 20); //On réserve une chaine de 20 caractères pour le score.
-    sprintf(str, "NPC Game");     //On réserve un emplacement à la valeur du score.
-    //apply_text(renderer, 5, 5, 50, 30, str, ressources.font);
+    init(&window, &renderer, &ressources, &game);  
+    char str[] = "NPC Game";
+    apply_text(renderer, SCREEN_WIDTH/2 - TITLE_WIDTH/2, 20, TITLE_WIDTH, TITLE_HEIGHT, str, ressources.font, 255, 255, 255);
     update_screen(renderer);
-    while (choix !=0 && !game.gameover)
+    while (choix !=0)
     {
         choix = choix_menu(&event, window, &game);
+        game.etat_partie = MENU;
 
         switch (choix)
         {
         case 1:
-
-            int_to_block(game.block, txt_to_int("ressources/levels/test_collisions.txt"));
+            init_data(&game, 100, 100, 300, 100);
+            game.etat_partie = LEVEL_1;
+            int_to_block(game.block, txt_to_int("ressources/levels/level_1.txt"));
+            choix = 0;
+            break;
+        
+        case 2:
+            game.etat_partie = LEVEL_2;
+            int_to_block(game.block, txt_to_int("ressources/levels/test.txt"));
             choix = 0;
             break;
         }

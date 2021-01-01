@@ -128,6 +128,11 @@ int choix_menu(SDL_Event *event, SDL_Window *window, game_t *game)
             {
                 return 1;
             }
+
+            else if (event->key.keysym.sym == SDLK_2 || event->key.keysym.sym == SDLK_KP_2)
+            {
+                return 2;
+            }
         }
         if (event->key.keysym.sym == SDLK_ESCAPE)
         {
