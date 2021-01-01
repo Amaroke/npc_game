@@ -35,10 +35,13 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_RIGHT;
                 game->player->orientation = ORIENTATION_RIGHT + game->player->current_frame;
-                copy->x += MOVING_STEP;
-                if (!bloc_collide(copy, game->block))
+                for (int i = 0; i < MOVING_STEP * game->player->sprite.s; ++i)
                 {
-                    game->player->sprite.x += MOVING_STEP * game->player->sprite.s;
+                    copy->x++;
+                    if (!bloc_collide(copy, game->block))
+                    {
+                        game->player->sprite.x++;
+                    }
                 }
             }
             else if (event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q)
@@ -46,10 +49,13 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_LEFT;
                 game->player->orientation = ORIENTATION_LEFT + game->player->current_frame;
-                copy->x -= MOVING_STEP;
-                if (!bloc_collide(copy, game->block))
+                for (int i = 0; i < MOVING_STEP * game->player->sprite.s; ++i)
                 {
-                    game->player->sprite.x -= MOVING_STEP * game->player->sprite.s;
+                    copy->x--;
+                    if (!bloc_collide(copy, game->block))
+                    {
+                        game->player->sprite.x--;
+                    }
                 }
             }
             else if (event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s)
@@ -57,10 +63,13 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_DOWN;
                 game->player->orientation = ORIENTATION_DOWN + game->player->current_frame;
-                copy->y += MOVING_STEP;
-                if (!bloc_collide(copy, game->block))
+                for (int i = 0; i < MOVING_STEP * game->player->sprite.s; ++i)
                 {
-                    game->player->sprite.y += MOVING_STEP * game->player->sprite.s;
+                    copy->y++;
+                    if (!bloc_collide(copy, game->block))
+                    {
+                        game->player->sprite.y++;
+                    }
                 }
             }
             else if (event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z)
@@ -68,10 +77,13 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
                 game->player->is_moving = true;
                 game->player->last_orientation = ORIENTATION_UP;
                 game->player->orientation = ORIENTATION_UP + game->player->current_frame;
-                copy->y -= MOVING_STEP;
-                if (!bloc_collide(copy, game->block))
+                for (int i = 0; i < MOVING_STEP * game->player->sprite.s; ++i)
                 {
-                    game->player->sprite.y -= MOVING_STEP * game->player->sprite.s;
+                    copy->y--;
+                    if (!bloc_collide(copy, game->block))
+                    {
+                        game->player->sprite.y--;
+                    }
                 }
             }
             else
@@ -87,11 +99,13 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
             }
             if (event->key.keysym.sym == SDLK_F11)
             {
-                if(!game->fullscreen) {
+                if (!game->fullscreen)
+                {
                     SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
                     game->fullscreen = true;
                 }
-                else {
+                else
+                {
                     SDL_SetWindowFullscreen(window, 0);
                     game->fullscreen = false;
                 }
