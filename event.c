@@ -7,13 +7,10 @@
 
 #include "event.h"
 
-void movement_player(SDL_Event *event, game_t *game)
+void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
 {
-
-
     while (SDL_PollEvent(event))
     {
-
         sprite_t *copy = copy_sprite(&game->player->sprite);
 
         if (event->type == SDL_QUIT)
@@ -87,6 +84,17 @@ void movement_player(SDL_Event *event, game_t *game)
             if (event->key.keysym.sym == SDLK_ESCAPE)
             {
                 game->gameover = true;
+            }
+            if (event->key.keysym.sym == SDLK_F11)
+            {
+                if(!game->fullscreen) {
+                    SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+                    game->fullscreen = true;
+                }
+                else {
+                    SDL_SetWindowFullscreen(window, 0);
+                    game->fullscreen = false;
+                }
             }
         }
     }

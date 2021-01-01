@@ -13,7 +13,7 @@ void init_data(game_t *game)
     game->gameover = false;
     game->timer = 0;
     game->score = 0;
-    game->etat_partie = 0;
+    game->fullscreen = false;
     game->player = malloc(sizeof(player_t));
     init_player(game->player);
     init_sprite(&game->player->sprite, 50, 50, NPC_TEST_WIDTH / 4, NPC_TEST_HEIGHT / 4, 1, true);

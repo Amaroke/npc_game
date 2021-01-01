@@ -78,7 +78,7 @@ int main(void)
     while (game.gameover == false) //Tant que le jeu n'est pas fini.
     {
         printf("%i\n", game.gameover);
-        movement_player(&event, &game);
+        movement_player(&event, &game, &window);
         update_data(&game);
         refresh_graphics(renderer, &game, &ressources);
         pause(10);

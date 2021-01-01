@@ -18,6 +18,6 @@
  *\param event Les évenements clavier.
  *\param game Le jeu.
 */
-void movement_player(SDL_Event *event, game_t *game);
+void movement_player(SDL_Event *event, game_t *game, SDL_Window *window);
 
 #endif
