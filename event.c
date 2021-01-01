@@ -18,7 +18,7 @@ void movement_player(SDL_Event *event, game_t *game)
 
         if (event->type == SDL_QUIT)
         {
-            game->gameover = 1;
+            game->gameover = true;
         }
         if (game->player->is_moving)
         {

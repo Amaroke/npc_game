@@ -28,4 +28,6 @@ typedef struct vortex_s
 */
 void init_vortex(vortex_t *vortex);
 
+bool vortex_collide(vortex_t *vortex, sprite_t *player);
+
 #endif

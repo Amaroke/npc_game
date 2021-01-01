@@ -75,10 +75,11 @@ int main(void)
             break;
         }
     }
-    while (!game.gameover) //Tant que le jeu n'est pas fini.
+    while (game.gameover == false) //Tant que le jeu n'est pas fini.
     {
+        printf("%i\n", game.gameover);
         movement_player(&event, &game);
-        update_data(game);
+        update_data(&game);
         refresh_graphics(renderer, &game, &ressources);
         pause(10);
     }

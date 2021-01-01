@@ -22,3 +22,12 @@ for(int i = 0 ; i < NB_ANIMATIONS_VORTEX; i++)
     vortex->frames = NB_ANIMATIONS_VORTEX;
     vortex->current_frame = 0;
 }
+
+bool vortex_collide(vortex_t *vortex, sprite_t *player) {
+    if(sprite_collide(player, &vortex->sprite)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}

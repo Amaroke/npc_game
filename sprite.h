@@ -35,6 +35,13 @@ typedef struct sprite_s
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h, int s, bool is_visible);
 
 /**
+ * \brief Test de la collision entre deux sprites.
+ * \param player Le sprite du joueur.
+ * \param block Le sprite du bloc.
+ **/
+bool sprite_collide(sprite_t *player, sprite_t *block);
+
+/**
  *\brief La fonction copie un sprite.
  *\param sprite Le sprite à initialiser.
  */

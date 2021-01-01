@@ -27,12 +27,15 @@ void init_data(game_t *game)
     }
 }
 
-void update_data(game_t game)
+void update_data(game_t *game)
 {
-    game.vortex->current_frame++;
-    if(game.vortex->current_frame == NB_ANIMATIONS_VORTEX * 5)
+    game->vortex->current_frame++;
+    if(game->vortex->current_frame == NB_ANIMATIONS_VORTEX * 5)
     {
-        game.vortex->current_frame = 0;
+        game->vortex->current_frame = 0;
+    }
+    if(vortex_collide(game->vortex, &game->player->sprite)) {
+        game->gameover = true;
     }
 }
 

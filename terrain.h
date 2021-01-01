@@ -46,13 +46,6 @@ void int_to_block(block_t **tab_block, int **tab_int);
 int **txt_to_int(char *fichier);
 
 /**
- * \brief Test de la collision entre deux sprites.
- * \param player Le sprite du joueur.
- * \param block Le sprite du bloc.
- **/
-bool sprite_collide(sprite_t *player, sprite_t *block);
-
-/**
  * \brief Test de la collision entre le joueur et le terrain.
  * \param game Le jeu.
  **/

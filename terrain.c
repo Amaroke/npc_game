@@ -74,18 +74,6 @@ int **txt_to_int(char *fichier)
     return res;
 }
 
-bool sprite_collide(sprite_t *player, sprite_t *block)
-{
-    if (block->is_visible)
-    {
-        if (player->x > block->x - 16 && player->x < block->x + BLOC_SIZE && player->y < block->y + BLOC_SIZE - 20 && player->y > block->y - BLOC_SIZE + 5)
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
 bool bloc_collide(sprite_t *player, block_t **block)
 {
     for (int i = 0; i < ROW; ++i)

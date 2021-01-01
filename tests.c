@@ -214,10 +214,11 @@ void test_collision()
     init(&window, &renderer, &ressources, &game);
     printf("Cliquer sur la croix pour fermer la fenêtre\n");
     int_to_block(game.block, txt_to_int("ressources/levels/test_collisions.txt"));
+    SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
     while (!game.gameover) //Tant que le jeu n'est pas fini.
     {
         movement_player(&event, &game);
-        update_data(game);
+        update_data(&game);
         refresh_graphics(renderer, &game, &ressources);
         pause(10);
     }
@@ -225,7 +226,7 @@ void test_collision()
     printf("Test d'affichage réussi !\n");
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
     int choix = 0;
     while (choix == 0)
