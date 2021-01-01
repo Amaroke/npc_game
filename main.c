@@ -18,6 +18,8 @@
 static const int TITLE_WIDTH = 500;
 static const int TITLE_HEIGHT = 60;
 
+
+
 /**
  *\brief Programme principal qui implémente la boucle du jeu.
 */
@@ -37,6 +39,7 @@ int main(void)
     while (choix !=0)
     {
         choix = choix_menu(&event, window, &game);
+        printf("choix : %i\n", choix);
         game.etat_partie = MENU;
 
         switch (choix)
@@ -49,8 +52,16 @@ int main(void)
             break;
         
         case 2:
+            init_data(&game, 100, 100, 300, 100);
             game.etat_partie = LEVEL_2;
             int_to_block(game.block, txt_to_int("ressources/levels/test.txt"));
+            choix = 0;
+            break;
+
+        case 3:
+            init_data(&game, 100, 100, 300, 300);
+            game.etat_partie = DEBUG;
+            int_to_block(game.block, txt_to_int("ressources/levels/test_collisions.txt"));
             choix = 0;
             break;
         }

@@ -24,16 +24,7 @@ void clean(SDL_Window *window, SDL_Renderer *renderer, ressources_t *ressources,
 
 void refresh_graphics(SDL_Renderer *renderer, game_t *game, ressources_t *ressources)
 {
-    if(game->etat_partie == LEVEL_1)
-    {
-        clear_renderer(renderer);
-        apply_background(renderer, ressources);
-        apply_block(renderer, *ressources, game->block);
-        apply_sprite(renderer, ressources->vortex, &game->vortex->sprite, game->vortex->animation[game->vortex->current_frame/5], game->vortex->sprite.x, game->vortex->sprite.y);
-        apply_sprite(renderer, ressources->player, &game->player->sprite, game->player->animation[game->player->orientation], game->player->sprite.x, game->player->sprite.y);
-        update_screen(renderer);
-    }
-    else if(game->etat_partie == LEVEL_2)
+    if(game->etat_partie != WIN && game->etat_partie != LOOSE)
     {
         clear_renderer(renderer);
         apply_background(renderer, ressources);

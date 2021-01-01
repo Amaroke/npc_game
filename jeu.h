@@ -20,6 +20,7 @@ typedef enum game_state_e
 	MENU,
 	LEVEL_1,
 	LEVEL_2,
+	DEBUG,
 	LOOSE,
 	WIN
 } game_state_t;
