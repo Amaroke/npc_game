@@ -28,11 +28,11 @@ void init_enemy(enemy_t *enemy, int x, int y, int orientation, int speed, bool i
         enemy->animation[i + 8] = array_sprite_up_enemy[i];
         enemy->animation[i + 12] = array_sprite_left_enemy[i];
     }
-    enemy->animation_speed = 10;
     enemy->current_frame = 0;
     enemy->frames = NB_ANIMATIONS_ENEMY;
     enemy->frame = 0;
     enemy->is_moving = false;
-    enemy->movement = 200;
+    enemy->movement = 0;
+    enemy->animation_speed = 2;
     init_sprite(&enemy->sprite, x, y, NPC_WIDTH / 4, NPC_HEIGHT / 4, speed, is_visible);
 }

@@ -25,7 +25,7 @@ void init_data(game_t *game)
     for (int i = 0; i < 10; i++)
     {
         game->enemy[i] = malloc(sizeof(enemy_t));
-        init_enemy(game->enemy[i], -50, -50, 4, 0, false);
+        init_enemy(game->enemy[i], -50, -50, 0, 0, false);
     }
 }
 
@@ -49,48 +49,47 @@ void update_data(game_t *game)
     }
     for (int i = 0; i < 10; i++)
     {
-
         if (game->enemy[i]->sprite.is_visible)
         {
-            if (game->enemy[i]->movement == 0)
-            {
-                game->enemy[i]->movement = 200;
-            }
             sprite_t *copy = copy_sprite(&game->enemy[i]->sprite);
-            if (sprite_collide(copy, ))
-                game->enemy[i]->orientation = rand() % (4 - 1)*4;
-                switch (rand() % (4 - 1)*4)
-                {
 
-                case 1:
-                    /* code */
-                    break;
-                case 2:
-                    /* code */
-                    break;
-                case 3:
-                    /* code */
-                    break;
-                case 4:
-                    /* code */
-                    break;
-                default:
-                    break;
-                }
-            game->player->is_moving = true;
-            game->player->last_orientation = ORIENTATION_RIGHT;
-            game->player->orientation = ORIENTATION_RIGHT + game->player->current_frame;
-            for (int i = 0; i < MOVING_STEP * game->player->sprite.s; ++i)
+            switch (game->enemy[i]->orientation / 4)
             {
-                copy->x++;
-                if (!bloc_collide(copy, game->block))
-                {
-                    game->player->sprite.x++;
-                }
+
+            case 1:
+
+                copy->x += game->enemy[i]->sprite.s;
+
+                break;
+            case 3:
+
+                copy->x -= game->enemy[i]->sprite.s;
+
+                break;
+            case 0:
+
+                copy->y += game->enemy[i]->sprite.s;
+
+                break;
+            case 2:
+
+                copy->y -= game->enemy[i]->sprite.s;
+
+                break;
+            }
+            if (bloc_collide(copy, game->block) || game->enemy[i]->movement == 0)
+            {
+                game->enemy[i]->orientation = rand() % 16;
+                game->enemy[i]->movement = 50;
+            }
+            else
+            {
+                game->enemy[i]->sprite.x = copy->x;
+                game->enemy[i]->sprite.y = copy->y;
+                game->enemy[i]->movement--;
             }
         }
     }
-
     if (game->player->health_point <= 0)
     {
         game->player->sprite.is_visible = false;
