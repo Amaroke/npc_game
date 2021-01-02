@@ -32,7 +32,7 @@ void init_player(player_t *player, int x, int y)
     player->frames = NB_ANIMATIONS;
     player->frame = 0;
     player->is_moving = false;
-    player->health_point = 1000;
+    player->health_point = HP_MAX;
     init_sprite(&player->sprite, x, y, NPC_WIDTH / 4, NPC_HEIGHT / 4, 1, true);
 }
 
