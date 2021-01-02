@@ -23,7 +23,9 @@ typedef enum level_e
     LEVEL_3,
     LEVEL_4,
     LEVEL_5,
-    LEVEL_6
+    LEVEL_6,
+    CHOIX,
+    QUITTER
 } level_t;
 
  void init_level(game_t *game, level_t level);

@@ -166,3 +166,72 @@ int choix_menu(SDL_Event *event, SDL_Window *window, game_t *game)
 
     return 5;
 }
+
+level_t choisir_level(SDL_Event *event, SDL_Window *window, game_t *game)
+{
+    while (SDL_PollEvent(event))
+    {
+        if (event->type == SDL_QUIT)
+        {
+            game->gameover = true;
+            return QUITTER;
+        }
+        if (event->type == SDL_KEYDOWN)
+        {
+            if (event->key.keysym.sym == SDLK_1 || event->key.keysym.sym == SDLK_KP_1)
+            {
+                return LEVEL_1;
+            }
+
+            else if (event->key.keysym.sym == SDLK_2 || event->key.keysym.sym == SDLK_KP_2)
+            {
+                return LEVEL_2;
+            }
+
+            else if (event->key.keysym.sym == SDLK_3 || event->key.keysym.sym == SDLK_KP_3)
+            {
+                return LEVEL_3;
+            }
+            else if (event->key.keysym.sym == SDLK_4 || event->key.keysym.sym == SDLK_KP_4)
+            {
+                return LEVEL_4;
+            }
+            else if (event->key.keysym.sym == SDLK_5 || event->key.keysym.sym == SDLK_KP_5)
+            {
+                return LEVEL_5;
+            }
+            else if (event->key.keysym.sym == SDLK_6 || event->key.keysym.sym == SDLK_KP_6)
+            {
+                return LEVEL_6;
+            }
+            else if (event->key.keysym.sym == SDLK_7 || event->key.keysym.sym == SDLK_KP_7)
+            {
+                return DEBUG;
+            }
+            if (event->key.keysym.sym == SDLK_0 || event->key.keysym.sym == SDLK_KP_0)
+            {
+                return QUITTER;
+            }
+        }
+        if (event->key.keysym.sym == SDLK_ESCAPE)
+        {
+            game->gameover = true;
+            return QUITTER;
+        }
+        if (event->key.keysym.sym == SDLK_F11)
+        {
+            if (!game->fullscreen)
+            {
+                SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+                game->fullscreen = true;
+            }
+            else
+            {
+                SDL_SetWindowFullscreen(window, 0);
+                game->fullscreen = false;
+            }
+        }
+    }
+
+    return CHOIX;
+}

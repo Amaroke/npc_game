@@ -36,8 +36,25 @@ void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *even
             choix = 5;
             break;
         case 1:
-            init_level(game, LEVEL_1);
-            choix = -1;
+            str = "Choix Level";
+            apply_text(renderer, SCREEN_WIDTH / 2 - TITLE_WIDTH / 2, 75, TITLE_WIDTH, TITLE_HEIGHT + 50, str, ressources.font, 255, 255, 255);
+            clear_renderer(renderer);
+            str = "0 : Retour";
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 100, 450, TITLE_WIDTH - 200, TITLE_HEIGHT, str, ressources.font, 255, 0, 0);
+            update_screen(renderer);
+            level_t choix_level = CHOIX;
+            while (choix_level == CHOIX)
+            {
+                choix_level = choisir_level(event, window, game);
+            }
+            if (choix_level != QUITTER)
+            {
+                init_level(game, choix_level);
+                choix = -1;
+            }
+            else {
+                choix = 0;
+            }
             break;
         case 2:
             clear_renderer(renderer);
@@ -58,13 +75,13 @@ void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *even
             str = "L'eau vous ralentis.";
             apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) - 135, 310, TITLE_WIDTH / 2, TITLE_HEIGHT / 2, str, ressources.font, 255, 255, 255);
             str = "La glace vous accelere.";
-            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) - 135, 410, TITLE_WIDTH / 2+50, TITLE_HEIGHT / 2, str, ressources.font, 255, 255, 255);
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) - 135, 410, TITLE_WIDTH / 2 + 50, TITLE_HEIGHT / 2, str, ressources.font, 255, 255, 255);
             str = "Le sol vous est neutre.";
             apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 210, TITLE_WIDTH / 2, TITLE_HEIGHT / 2, str, ressources.font, 255, 255, 255);
             str = "Le magma vous blesse.";
             apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 310, TITLE_WIDTH / 2, TITLE_HEIGHT / 2, str, ressources.font, 255, 255, 255);
             str = "Le bloc de soin vous soigne.";
-            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 410, TITLE_WIDTH / 2+100, TITLE_HEIGHT / 2, str, ressources.font, 255, 255, 255);
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 410, TITLE_WIDTH / 2 + 100, TITLE_HEIGHT / 2, str, ressources.font, 255, 255, 255);
             apply_texture(ressources.wall, renderer, rectangle, 50, 200);
             apply_texture(ressources.water, renderer, rectangle, 50, 300);
             apply_texture(ressources.ice, renderer, rectangle, 50, 400);
