@@ -26,17 +26,19 @@ int main(void)
     ressources_t ressources;
     game_t game;
     SDL_Event event;
-
+    bool jeu_en_cours = true;
     init(&window, &renderer, &ressources, &game);
-    start_menu(renderer, ressources, &event, window, &game);
-    while (game.gameover == false)
+    while (jeu_en_cours)
     {
-        movement_player(&event, &game, window);
-        update_data(&game);
-        refresh_graphics(renderer, &game, &ressources);
-        pause(10);
+        start_menu(renderer, ressources, &event, window, &game, &jeu_en_cours);
+        while (game.gameover == false)
+        {
+            movement_player(&event, &game, window);
+            update_data(&game);
+            refresh_graphics(renderer, &game, &ressources);
+            pause(10);
+        }
     }
-    start_menu(renderer, ressources, &event, window, &game);
     clean(window, renderer, &ressources, &game);
     return EXIT_SUCCESS;
 }

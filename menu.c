@@ -10,7 +10,7 @@
 static const int TITLE_WIDTH = 500;
 static const int TITLE_HEIGHT = 60;
 
-void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *event, SDL_Window *window, game_t *game)
+void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *event, SDL_Window *window, game_t *game, bool *jeu_en_cours)
 {
     int choix = 0;
     char *str = malloc(sizeof(char) * 100);
@@ -78,6 +78,7 @@ void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *even
             break;
         case 3:
             game->gameover = true;
+            *jeu_en_cours = false;
             choix = -1;
             break;
         case 5:
