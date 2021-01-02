@@ -30,11 +30,34 @@ void refresh_graphics(SDL_Renderer *renderer, game_t *game, ressources_t *ressou
         char *str = malloc(sizeof(char) * 100);
 
         sprintf(str, "HP : %4d", game->player->health_point);
-        
+
         apply_background(renderer, ressources);
         apply_block(renderer, *ressources, game->block);
         apply_sprite(renderer, ressources->vortex, &game->vortex->sprite, game->vortex->animation[game->vortex->current_frame / 5], game->vortex->sprite.x, game->vortex->sprite.y);
         apply_sprite(renderer, ressources->player, &game->player->sprite, game->player->animation[game->player->orientation], game->player->sprite.x, game->player->sprite.y);
+        for (int i = 0; i < 10; i++)
+        {
+            if (game->enemy[i]->sprite.is_visible)
+            {
+                switch (game->enemy[i]->sprite.s)
+                {
+                case 1:
+                    apply_sprite(renderer, ressources->blue_enemy, &game->enemy[i]->sprite, game->enemy[i]->animation[game->enemy[i]->orientation], game->enemy[i]->sprite.x, game->enemy[i]->sprite.y);
+                    break;
+                case 2:
+                    apply_sprite(renderer, ressources->green_enemy, &game->enemy[i]->sprite, game->enemy[i]->animation[game->enemy[i]->orientation], game->enemy[i]->sprite.x, game->enemy[i]->sprite.y);
+                    break;
+                case 3:
+                    apply_sprite(renderer, ressources->black_enemy, &game->enemy[i]->sprite, game->enemy[i]->animation[game->enemy[i]->orientation], game->enemy[i]->sprite.x, game->enemy[i]->sprite.y);
+                    break;
+
+                default:
+                    break;
+                }
+               
+            }
+        }
+
         apply_text(renderer, 5, 5, 100, 25, str, ressources->font, 255, 255, 255);
         update_screen(renderer);
     }

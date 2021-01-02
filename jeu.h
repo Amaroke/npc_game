@@ -14,6 +14,7 @@
 #include "joueur.h"
 #include "terrain.h"
 #include "vortex.h"
+#include "ennemis.h"
 
 typedef enum game_state_e
 {
@@ -31,6 +32,7 @@ typedef struct game_s
 	int score;				  /*!< Score.*/
 	int timer;				  /*!< Le temps.*/
 	player_t *player;		  /*!< Le joueur.*/
+	enemy_t *enemy[10];		  /*!<Un tableau de 10 ennemis maximum.*/
 	vortex_t *vortex;		  /*!< Le vortex.*/
 	block_t **block;		  /*!< Un bloc.*/
 } game_t;

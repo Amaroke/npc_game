@@ -22,6 +22,11 @@ void init_data(game_t *game)
     {
         game->block[i] = malloc(sizeof(block_t) * COLUMN);
     }
+    for (int i = 0; i < 10; i++)
+    {
+        game->enemy[i] = malloc(sizeof(enemy_t));
+        init_enemy(game->enemy[i], -50, -50, 4, 0, false);
+    }
 }
 
 void update_data(game_t *game)
@@ -40,8 +45,52 @@ void update_data(game_t *game)
         if (game->timer == 0)
         {
             game->gameover = true;
-        }    
+        }
     }
+    for (int i = 0; i < 10; i++)
+    {
+
+        if (game->enemy[i]->sprite.is_visible)
+        {
+            if (game->enemy[i]->movement == 0)
+            {
+                game->enemy[i]->movement = 200;
+            }
+            sprite_t *copy = copy_sprite(&game->enemy[i]->sprite);
+            if (sprite_collide(copy, ))
+                game->enemy[i]->orientation = rand() % (4 - 1)*4;
+                switch (rand() % (4 - 1)*4)
+                {
+
+                case 1:
+                    /* code */
+                    break;
+                case 2:
+                    /* code */
+                    break;
+                case 3:
+                    /* code */
+                    break;
+                case 4:
+                    /* code */
+                    break;
+                default:
+                    break;
+                }
+            game->player->is_moving = true;
+            game->player->last_orientation = ORIENTATION_RIGHT;
+            game->player->orientation = ORIENTATION_RIGHT + game->player->current_frame;
+            for (int i = 0; i < MOVING_STEP * game->player->sprite.s; ++i)
+            {
+                copy->x++;
+                if (!bloc_collide(copy, game->block))
+                {
+                    game->player->sprite.x++;
+                }
+            }
+        }
+    }
+
     if (game->player->health_point <= 0)
     {
         game->player->sprite.is_visible = false;
@@ -59,4 +108,8 @@ void clean_data(game_t *game)
 {
     free(game->player);
     free(game->vortex);
+    for (int i = 0; i < 10; i++)
+    {
+        free(game->enemy[i]);
+    }
 }

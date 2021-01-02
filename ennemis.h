@@ -31,6 +31,7 @@ typedef struct enemy_s
     int frames;             /*!<Le nombre de sprites que compose une animation complète.*/
     int frame;              /*!<Le calcul de la frame suivante.*/
     bool is_moving;         /*!<L'ennemi se déplace-t-il ?*/
+    int movement;
 } enemy_t;
 
 /**
@@ -40,7 +41,8 @@ typedef struct enemy_s
 *\param y La coordonnée en ordonnée.
 *\param orientation L'orientation de l'ennemi.
 *\param speed La vitesse de déplacement de l'ennemi.
+*\param is_visible L'ennemi est visible.
 */
-void init_enemy(enemy_t *enemy, int x, int y, int orientation, int speed);
+void init_enemy(enemy_t *enemy, int x, int y, int orientation, int speed, bool is_visible);
 
 #endif

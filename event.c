@@ -120,7 +120,7 @@ int choix_menu(SDL_Event *event, SDL_Window *window, game_t *game)
     {
         if (event->type == SDL_QUIT)
         {
-            game->gameover = true;
+            return 3;
         }
         if (event->type == SDL_KEYDOWN)
         {
@@ -147,7 +147,7 @@ int choix_menu(SDL_Event *event, SDL_Window *window, game_t *game)
         }
         if (event->key.keysym.sym == SDLK_ESCAPE)
         {
-            game->gameover = true;
+            return 4;
         }
         if (event->key.keysym.sym == SDLK_F11)
         {

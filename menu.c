@@ -98,6 +98,10 @@ void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *even
             *jeu_en_cours = false;
             choix = -1;
             break;
+        case 4:
+            game->gameover = true;
+            choix = -1;
+            break;
         case 5:
             choix = choix_menu(event, window, game);
             break;
