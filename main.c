@@ -14,11 +14,7 @@
 #include "joueur.h"
 #include "jeu.h"
 #include "event.h"
-
-static const int TITLE_WIDTH = 500;
-static const int TITLE_HEIGHT = 60;
-
-
+#include "menu.h"
 
 /**
  *\brief Programme principal qui implémente la boucle du jeu.
@@ -31,42 +27,9 @@ int main(void)
     game_t game;
     SDL_Event event;
 
-    int choix = -1;
-    init(&window, &renderer, &ressources, &game);  
-    char str[] = "NPC Game";
-    apply_text(renderer, SCREEN_WIDTH/2 - TITLE_WIDTH/2, 20, TITLE_WIDTH, TITLE_HEIGHT, str, ressources.font, 255, 255, 255);
-    update_screen(renderer);
-    while (choix !=0)
-    {
-        choix = choix_menu(&event, window, &game);
-        printf("choix : %i\n", choix);
-        game.etat_partie = MENU;
-
-        switch (choix)
-        {
-        case 1:
-            init_data(&game, 100, 100, 300, 100);
-            game.etat_partie = LEVEL_1;
-            int_to_block(game.block, txt_to_int("ressources/levels/level_1.txt"));
-            choix = 0;
-            break;
-        
-        case 2:
-            init_data(&game, 100, 100, 300, 100);
-            game.etat_partie = LEVEL_2;
-            int_to_block(game.block, txt_to_int("ressources/levels/test.txt"));
-            choix = 0;
-            break;
-
-        case 3:
-            init_data(&game, 100, 100, 300, 300);
-            game.etat_partie = DEBUG;
-            int_to_block(game.block, txt_to_int("ressources/levels/test_collisions.txt"));
-            choix = 0;
-            break;
-        }
-    }
-    while (game.gameover == false) //Tant que le jeu n'est pas fini.
+    init(&window, &renderer, &ressources, &game);
+    start_menu(renderer, ressources, &event, window, &game);
+    while (game.gameover == false)
     {
         movement_player(&event, &game, window);
         update_data(&game);

@@ -24,6 +24,7 @@ typedef enum game_state_e
 	LOOSE,
 	WIN
 } game_state_t;
+
 typedef struct game_s
 {
 	bool gameover;			  /*!< Champ indiquant si l'on est à la fin du jeu.*/
@@ -40,7 +41,7 @@ typedef struct game_s
  *\brief La fonction initialise le monde.
  *\param game Le jeu.
 */
-void init_data(game_t *game, int player_x, int player_y, int vortex_x, int vortex_y);
+void init_data(game_t *game);
 
 /**
  *\brief La fonction initialise le monde.

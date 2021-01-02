@@ -49,7 +49,8 @@ void test_affichage()
     SDL_Event event;
 
     init(&window, &renderer, &ressources, &game);
-    init_data(&game, 10, 10, 50, 50);
+    init_data(&game);
+    init_player(game.player, 30, 30);
     printf("Cliquer sur la croix pour fermer la fenêtre\n");
     while (!game.gameover)
     {
@@ -77,7 +78,8 @@ void test_player_animation()
     game_t game;
 
     init(&window, &renderer, &ressources, &game);
-    init_data(&game, 10, 10, 50, 50);
+    init_data(&game);
+    init_player(game.player, 30, 30);
     while (!game.gameover) //Tant que le jeu n'est pas fini.
     {
         movement_player(&event, &game, window);
@@ -121,7 +123,7 @@ void test_affichage_bloc()
     game_t game;
     SDL_Event event;
     init(&window, &renderer, &ressources, &game);
-    init_data(&game, 10, 10, 50, 50);
+    init_data(&game);
     printf("Cliquer sur la croix pour fermer la fenêtre\n");
     for (int i = 0; i < ROW; i++)
     {
@@ -157,7 +159,7 @@ void test_int_to_block()
     SDL_Event event;
     int **int_tab = malloc(sizeof(int) * ROW * COLUMN);
     init(&window, &renderer, &ressources, &game);
-    init_data(&game, 10, 10, 50, 50);
+    init_data(&game);
     printf("Cliquer sur la croix pour fermer la fenêtre\n");
     for (int i = 0; i < ROW; i++)
     {
@@ -215,7 +217,9 @@ void test_collision()
     game_t game;
     SDL_Event event;
     init(&window, &renderer, &ressources, &game);
-    init_data(&game, 40, 40, 300, 50);
+    init_data(&game);
+     init_player(game.player, 50, 50);
+     init_vortex(game.vortex, 100,100);
     printf("Cliquer sur la croix pour fermer la fenêtre\n");
     int_to_block(game.block, txt_to_int("ressources/levels/test_collisions.txt"));
     while (!game.gameover) //Tant que le jeu n'est pas fini.

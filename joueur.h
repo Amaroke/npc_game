@@ -16,7 +16,7 @@
 #define ORIENTATION_UP 8
 #define ORIENTATION_LEFT 12
 #define NB_ANIMATIONS 4
-#define HP_MAX 1000
+#define HP_MAX 300
 
 #include <SDL2/SDL.h>
 #include "sprite.h"
@@ -39,7 +39,7 @@ typedef struct player_s
  *\brief La fonction initialise le player.
  *\param player Le player à initialiser.
 */
-void init_player(player_t *player);
+void init_player(player_t *player, int x, int y);
 
 
 #endif

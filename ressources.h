@@ -10,8 +10,8 @@
 
 //Constantes
 
-#define NPC_TEST_WIDTH 64
-#define NPC_TEST_HEIGHT 128
+#define NPC_WIDTH 64
+#define NPC_HEIGHT 128
 
 #include <SDL2/SDL.h>
 #include "fonctions_SDL.h"

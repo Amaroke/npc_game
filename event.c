@@ -124,6 +124,12 @@ int choix_menu(SDL_Event *event, SDL_Window *window, game_t *game)
         }
         if (event->type == SDL_KEYDOWN)
         {
+
+            if (event->key.keysym.sym == SDLK_0 || event->key.keysym.sym == SDLK_KP_0)
+            {
+                return 0;
+            }
+
             if (event->key.keysym.sym == SDLK_1 || event->key.keysym.sym == SDLK_KP_1)
             {
                 return 1;
@@ -158,5 +164,5 @@ int choix_menu(SDL_Event *event, SDL_Window *window, game_t *game)
         }
     }
 
-    return -1;
+    return 5;
 }

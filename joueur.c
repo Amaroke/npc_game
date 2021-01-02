@@ -7,6 +7,7 @@
 
 
 #include "joueur.h"
+#include "ressources.h"
 
 // Constantes
 
@@ -15,7 +16,7 @@ SDL_Rect array_sprite_right[NB_ANIMATIONS] = {{0, 32, 16, 32}, {16, 32, 16, 32},
 SDL_Rect array_sprite_up[NB_ANIMATIONS] = {{0, 64, 16, 32}, {16, 64, 16, 32}, {32, 64, 16, 32}, {48, 64, 16, 32}};
 SDL_Rect array_sprite_left[NB_ANIMATIONS] = {{0, 96, 16, 32}, {16, 96, 16, 32}, {32, 96, 16, 32}, {48, 96, 16, 32}};
 
-void init_player(player_t *player)
+void init_player(player_t *player, int x, int y)
 {
     player->orientation = ORIENTATION_DOWN;
     player->last_orientation = ORIENTATION_DOWN;
@@ -32,6 +33,7 @@ void init_player(player_t *player)
     player->frame = 0;
     player->is_moving = false;
     player->health_point = 1000;
+    init_sprite(&player->sprite, x, y, NPC_WIDTH / 4, NPC_HEIGHT / 4, 1, true);
 }
 
 
