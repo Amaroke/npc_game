@@ -36,6 +36,7 @@ int main(void)
         refresh_graphics(renderer, &game, &ressources);
         pause(10);
     }
+    start_menu(renderer, ressources, &event, window, &game);
     clean(window, renderer, &ressources, &game);
     return EXIT_SUCCESS;
 }

@@ -40,7 +40,7 @@ void update_data(game_t *game)
         if (game->timer == 0)
         {
             game->gameover = true;
-        }
+        }    
     }
     if (game->player->health_point <= 0)
     {

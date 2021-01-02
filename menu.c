@@ -36,7 +36,7 @@ void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *even
             choix = 5;
             break;
         case 1:
-            //choix_level();
+            init_level(game, LEVEL_1);
             choix = -1;
             break;
         case 2:

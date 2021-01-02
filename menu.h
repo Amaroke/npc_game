@@ -15,6 +15,7 @@
 #include "jeu.h"
 #include "event.h"
 #include "affichage.h"
+#include "level.h"
 
 void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *event, SDL_Window *window, game_t *game);
 
