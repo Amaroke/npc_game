@@ -10,10 +10,10 @@
 
 //Constantes
 
-#define SCREEN_WIDTH 1024 // 32 colonnes de blocs
-#define COLUMN 32
-#define SCREEN_HEIGHT SCREEN_WIDTH / 16 * 9 // 18 lignes de blocs
-#define ROW 18
+#define SCREEN_WIDTH 992
+#define COLUMN 31
+#define SCREEN_HEIGHT 544
+#define ROW 17
 #define BLOC_SIZE 32
 
 #include <SDL2/SDL.h>
