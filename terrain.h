@@ -16,7 +16,7 @@
 typedef struct block_s
 {
     sprite_t sprite; /*!<Le sprite du bloc.*/
-    int effet;       /*!<L'effet que le bloc applique sur les entités.*/
+    int effet;       /*!<L'effet que le bloc applique sur le joueur.*/
     bool collision;  /*!<Vrai si c'est un mur, Faux si on peut marcher dessus*/
 } block_t;
 
@@ -34,7 +34,7 @@ typedef struct block_s
 void init_block(block_t *block, int x, int y, int h, int w, bool is_visible, int effet, bool collision);
 
 /**
- * \brief Conversion d'un tableau d'int en un tableau de blocks.
+ * \brief Conversion d'un tableau d'int en un tableau de blocs.
  * \param tab_block Le tableau qui récupère les blocs.
  * \param tab_int Le tableau d'int.
  **/

@@ -16,7 +16,7 @@
 #include "fonctions_ttf.h"
 
 /**
- *\struct texture_t
+ *\struct ressources_t
  *\brief Représentation pour stocker les ressources nécessaires à l'affichage graphique.
 */
 typedef struct ressources_s
@@ -40,7 +40,7 @@ typedef struct ressources_s
 } ressources_t;
 
 /**
- *\brief La fonction initialise les textures.
+ *\brief La fonction initialise les ressources.
  *\param renderer La surface correspondant à l'écran de jeu.
  *\param ressources Les ressources du jeu.
 */

@@ -1,6 +1,6 @@
 /**
- *\file monde.c
- *\brief Déclaration des fonctions du monde.
+ *\file jeu.h
+ *\brief Déclaration des fonctions du jeu.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
  *\date 30 novembre 2020
 */
@@ -38,19 +38,19 @@ typedef struct game_s
 } game_t;
 
 /**
- *\brief La fonction initialise le monde.
+ *\brief La fonction initialise les données jeu.
  *\param game Le jeu.
 */
 void init_data(game_t *game);
 
 /**
- *\brief La fonction initialise le monde.
+ *\brief La fonction met à jour les données jeu.
  *\param game Le jeu.
 */
 void update_data(game_t *game);
 
 /**
- *\brief La fonction nettoie le monde.
+ *\brief La fonction nettoie les données du jeu.
  *\param game Le jeu.
 */
 void clean_data(game_t *game);

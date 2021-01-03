@@ -21,8 +21,8 @@
  *\brief La fonction initialise le menu.
  *\param renderer L'écran.
  *\param ressources Les ressources.
- *\param event Les évenements.
- *\param window La fenètre de jeu.
+ *\param event Les évènements.
+ *\param window La fenêtre de jeu.
  *\param game Le jeu.
  *\param jeu_en_cours Si le jeu est en cours.
 */

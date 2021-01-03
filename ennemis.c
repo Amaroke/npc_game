@@ -1,6 +1,6 @@
 /**
  *\file ennemis.c
- *\brief Définition du joueur.
+ *\brief Définition des fonctions l'ennemi.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
  *\date 2 janvier 2021
 */

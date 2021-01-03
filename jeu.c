@@ -1,6 +1,6 @@
 /**
- *\file monde.c
- *\brief Définition des fonctions du monde.
+ *\file jeu.c
+ *\brief Définition des fonctions du jeu.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
  *\date 30 novembre 2020
 */

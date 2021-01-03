@@ -1,6 +1,6 @@
 /**
  *\file level.h
- *\brief Déclaration des fonctions du niveau.
+ *\brief Déclaration des fonctions d'un niveau.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
  *\date 3 janvier 2020
 */

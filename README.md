@@ -33,7 +33,7 @@ Attention cependant aux ennemis qui rôdent et qui vous blessent, ainsi qu'aux e
 ## Organisation du travail
 
 On travaillait en général pendant les créneaux de TP les lundis et on prenait du temps supplémentaire si besoin le jeudi après-midi.
-Pendant la deuxième semaine des vacances de Noël, chaque jour de 14h à 18h ou plus environ, on travaillait ensemble, en codant à tour de rôle afin d'éviter les conflits git parfois très chronophages à résoudre.
+Pendant la deuxième semaine des vacances de Noël, chaque jour de 14 h à 18 h ou plus environ, on travaillait ensemble, en codant à tour de rôle afin d'éviter les conflits git parfois très chronophages à résoudre.
 Hugo s'occupait de la logique algorithmique du code, ainsi que du nettoyage et de la documentation, tandis que Marie-Luc s'occupait des idées d'évolutions du gameplay, le découpage et la création des sprites.
-Les seuls choses codées individuellement étaient les modules menu par Hugo, et les modules ennemis pare Marie-Luc.
+Les seules choses codées individuellement étaient les modules menus par Hugo, et les modules ennemis par Marie-Luc.
 Nous avons codé tout le reste ensemble au fur et à mesure par sécurité d'une part pour éviter les conflits de git et d'une autre part afin d'éviter les malentendus sur les conventions d'écritures et la compréhension du code.

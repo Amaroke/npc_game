@@ -43,7 +43,7 @@ bool sprite_collide(sprite_t *player, sprite_t *block);
 
 /**
  *\brief La fonction copie un sprite.
- *\param sprite Le sprite à initialiser.
+ *\param sprite Le sprite à copier.
  */
 sprite_t *copy_sprite(sprite_t *sprite);
 

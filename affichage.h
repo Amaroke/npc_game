@@ -53,14 +53,14 @@ void refresh_graphics(SDL_Renderer *renderer, game_t *game, ressources_t *ressou
 void apply_sprite(SDL_Renderer *renderer, SDL_Texture *texture, sprite_t *sprite, SDL_Rect src, int x, int y);
 
 /**
- *\brief La fonction applique la texture du fond sur le renderer lié l'affichage lié à l'écran de jeu.
+ *\brief La fonction applique la texture du fond sur le renderer lié à l'affichage lié à l'écran de jeu.
  *\param renderer L'affichage.
  *\param ressources Les ressources.
 */
 void apply_background(SDL_Renderer *renderer, ressources_t *ressources);
 
 /**
- *\brief La fonction applique la texture du fond sur le renderer lié l'affichage lié à l'écran de jeu.
+ *\brief La fonction applique la texture du bloc sur le renderer lié à l'affichage lié à l'écran de jeu.
  *\param renderer L'affichage.
  *\param texture La texture.
  *\param blocks La matrice de blocs.

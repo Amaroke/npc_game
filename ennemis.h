@@ -1,6 +1,6 @@
 /**
  *\file enemies.h
- *\brief Déclaration du joueur.
+ *\brief Déclaration des fonctions de l'ennemi.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
  *\date 2 janvier 2021
 */
@@ -29,7 +29,7 @@ typedef struct enemy_s
     int frames;             /*!<Le nombre de sprites que compose une animation complète.*/
     int frame;              /*!<Le calcul de la frame suivante.*/
     bool is_moving;         /*!<L'ennemi se déplace-t-il ?*/
-    int movement;           /*!<La quantité de déplacement restante au sprite avant une réorientation*/
+    int movement;           /*!<Le nombre de déplacement restant au sprite avant une réorientation.*/
 } enemy_t;
 
 /**

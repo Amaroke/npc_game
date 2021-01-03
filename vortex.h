@@ -16,9 +16,9 @@
 typedef struct vortex_s
 {
     sprite_t sprite;       /*!<Le sprite du vortex.*/
-    SDL_Rect animation[8]; /*!<Les sprites découpés des animations du joueur.*/
+    SDL_Rect animation[8]; /*!<Les sprites découpés des animations du vortex.*/
     int animation_speed;   /*!<La vitesse d'animation.*/
-    int frames;            /*!<Le nombre de sprites que compose une animation complète.*/
+    int frames;            /*!<Le nombre de sprites qui compose une animation complète.*/
     int current_frame;     /*!<Le calcul de la frame suivante.*/
 } vortex_t;
 
@@ -26,7 +26,7 @@ typedef struct vortex_s
  *\brief La fonction initialise le vortex.
  *\param vortex Le vortex à initialiser.
  *\param x Abscisse où l'initialiser.
- *\param y Ordonné où l'initialiser.
+ *\param y Ordonnée où l'initialiser.
 */
 void init_vortex(vortex_t *vortex, int x, int y);
 

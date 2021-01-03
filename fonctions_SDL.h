@@ -1,6 +1,6 @@
 /**
  *\file fonctions_SDL.h
- *\brief Surcouche de la bibliothèque SDL2.
+ *\brief Déclaration des fonctions de la surcouche de la bibliothèque SDL2.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
  *\date 2 novembre 2020
 */
@@ -19,7 +19,7 @@
 #include <SDL2/SDL.h>
 
 /**
- * \brief La fonction initialise la SDL et crée la fenêtre du jeu ainsi que l'affichage.
+ * \brief La fonction initialise SDL et crée la fenêtre du jeu ainsi que l'affichage.
  * \param window La fenêtre du jeu.
  * \param renderer L'affichage.
  * \param width La largeur de l'écran de jeu.
