@@ -36,11 +36,23 @@ void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *even
             choix = 5;
             break;
         case 1:
-            str = "Choix Level";
-            apply_text(renderer, SCREEN_WIDTH / 2 - TITLE_WIDTH / 2, 75, TITLE_WIDTH, TITLE_HEIGHT + 50, str, ressources.font, 255, 255, 255);
             clear_renderer(renderer);
+            str = "Choix Level";
+            apply_text(renderer, SCREEN_WIDTH / 2 - TITLE_WIDTH / 2, 50, TITLE_WIDTH, TITLE_HEIGHT + 50, str, ressources.font, 255, 255, 255);
             str = "0 : Retour";
-            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 100, 450, TITLE_WIDTH - 200, TITLE_HEIGHT, str, ressources.font, 255, 0, 0);
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 100, 475, TITLE_WIDTH - 200, TITLE_HEIGHT, str, ressources.font, 0, 0, 255);
+            str = "1 : Level 1 - Debut";
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) - 200, 210, TITLE_WIDTH / 2, TITLE_HEIGHT / 2, str, ressources.font, 0, 255, 0);
+            str = "2 : Level 2 - Nouveaux blocs";
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) - 200, 310, TITLE_WIDTH / 2 + 100, TITLE_HEIGHT / 2, str, ressources.font, 255, 230, 50);
+            str = "3 : Level 3 - Premiers ennemis";
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) - 200, 410, TITLE_WIDTH / 2 + 100, TITLE_HEIGHT / 2, str, ressources.font, 255, 160, 50);
+            str = "Level 4 - Niveau - simple : 4";
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 210, TITLE_WIDTH / 2+100, TITLE_HEIGHT / 2, str, ressources.font, 255, 100, 255);
+            str = "Level 5 - Niveau + dur : 5";
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 310, TITLE_WIDTH / 2+100, TITLE_HEIGHT / 2, str, ressources.font, 255, 50, 50);
+            str = "Level 6 - Hardmode : 6";
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 410, TITLE_WIDTH / 2 + 100, TITLE_HEIGHT / 2, str, ressources.font, 255, 0, 0);
             update_screen(renderer);
             level_t choix_level = CHOIX;
             while (choix_level == CHOIX)
@@ -52,7 +64,8 @@ void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *even
                 init_level(game, choix_level);
                 choix = -1;
             }
-            else {
+            else
+            {
                 choix = 0;
             }
             break;
