@@ -40,7 +40,11 @@ void init_block(block_t *block, int x, int y, int h, int w, bool is_visible, int
  **/
 void int_to_block(block_t **tab_block, int **tab_int);
 
-
+/**
+ * \brief Applique les effets des blocs.
+ * \param player Le joueur sur lequel appliqué l'effet.
+ * \param block Les blocs.
+ **/
 void apply_block_effect(player_t *player, block_t **block);
 
 /**

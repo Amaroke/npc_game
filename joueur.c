@@ -5,11 +5,8 @@
  *\date 2 novembre 2020
 */
 
-
 #include "joueur.h"
 #include "ressources.h"
-
-// Constantes
 
 SDL_Rect array_sprite_down[NB_ANIMATIONS] = {{0, 0, 16, 32}, {16, 0, 16, 32}, {32, 0, 16, 32}, {48, 0, 16, 32}};
 SDL_Rect array_sprite_right[NB_ANIMATIONS] = {{0, 32, 16, 32}, {16, 32, 16, 32}, {32, 32, 16, 32}, {48, 32, 16, 32}};
@@ -35,5 +32,4 @@ void init_player(player_t *player, int x, int y)
     player->health_point = HP_MAX;
     init_sprite(&player->sprite, x, y, NPC_WIDTH / 4, NPC_HEIGHT / 4, 1, true);
 }
-
 

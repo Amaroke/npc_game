@@ -8,8 +8,6 @@
 #ifndef ENEMIES_H
 #define ENEMIES_H
 
-//Constantes
-
 #define MOVING_STEP 1
 #define ORIENTATION_ENEMY_DOWN 0
 #define ORIENTATION_ENEMY_RIGHT 4
@@ -31,7 +29,7 @@ typedef struct enemy_s
     int frames;             /*!<Le nombre de sprites que compose une animation complète.*/
     int frame;              /*!<Le calcul de la frame suivante.*/
     bool is_moving;         /*!<L'ennemi se déplace-t-il ?*/
-    int movement;
+    int movement;           /*!<La quantité de déplacement restante au sprite avant une réorientation*/
 } enemy_t;
 
 /**

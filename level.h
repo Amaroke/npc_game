@@ -1,8 +1,8 @@
 /**
- *\file joueur.h
- *\brief Déclaration du joueur.
+ *\file level.h
+ *\brief Déclaration des fonctions du niveau.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
- *\date 2 novembre 2020
+ *\date 3 janvier 2020
 */
 
 #include "fonctions_SDL.h"
@@ -28,6 +28,11 @@ typedef enum level_e
     QUITTER
 } level_t;
 
- void init_level(game_t *game, level_t level);
+/**
+ *\brief La fonction initialise le niveau.
+ *\param game Le jeu.
+ *\param level Le niveau.
+ */
+void init_level(game_t *game, level_t level);
 
 #endif

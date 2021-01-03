@@ -5,10 +5,7 @@
  *\date 31 décembre 2020
 */
 
-
 #include "fonctions_ttf.h"
-
-
 
 void init_ttf()
 {
@@ -17,7 +14,6 @@ void init_ttf()
         printf("TTF_Init: %s\n", TTF_GetError());
     }
 }
-
 
 TTF_Font *load_font(const char *path, int font_size)
 {
@@ -32,9 +28,7 @@ TTF_Font *load_font(const char *path, int font_size)
 void apply_text(SDL_Renderer *renderer, int x, int y, int w, int h, const char *text, TTF_Font *font, int r, int g, int b)
 {
     SDL_Color color = {r, g, b, 0};
-
     SDL_Surface *surface = TTF_RenderText_Solid(font, text, color);
-
     SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_Rect dstrect2 = {x, y, w, h};
     SDL_RenderCopy(renderer, texture, NULL, &dstrect2);

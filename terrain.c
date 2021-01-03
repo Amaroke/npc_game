@@ -46,35 +46,24 @@ void apply_block_effect(player_t *player, block_t **block)
                 case 0: // case sans effet
                     player->sprite.s = 2;
                     player->animation_speed = 10;
-
                     break;
-
                 case 2: // case d'eau, ralenti les déplacements.
                     player->sprite.s = 1;
                     player->animation_speed = 20;
-
                     break;
-
                 case 3: // blesse le joueur
                     player->sprite.s = 2;
                     player->animation_speed = 10;
-
                     player->health_point--;
-
                     break;
-
                 case 4: // accélère le joueur
                     player->sprite.s = 4;
                     player->animation_speed = 5;
-
                     break;
-
                 case 5: // Pas d'effet
                     player->sprite.s = 2;
                     player->animation_speed = 10;
-
                     break;
-
                 case 6: // Régénère le joueur
                     player->sprite.s = 2;
                     player->animation_speed = 10;
@@ -82,7 +71,6 @@ void apply_block_effect(player_t *player, block_t **block)
                     {
                         player->health_point++;
                     }
-
                     break;
                 }
             }

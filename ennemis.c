@@ -5,11 +5,8 @@
  *\date 2 janvier 2021
 */
 
-
 #include "ennemis.h"
 #include "ressources.h"
-
-// Constantes
 
 SDL_Rect array_sprite_down_enemy[NB_ANIMATIONS_ENEMY] = {{0, 0, 16, 32}, {16, 0, 16, 32}, {32, 0, 16, 32}, {48, 0, 16, 32}};
 SDL_Rect array_sprite_right_enemy[NB_ANIMATIONS_ENEMY] = {{0, 32, 16, 32}, {16, 32, 16, 32}, {32, 32, 16, 32}, {48, 32, 16, 32}};

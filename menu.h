@@ -1,8 +1,8 @@
 /**
- *\file fonctions_ttf.h
- *\brief Déclaration des fonctions d'affichage de textes.
+ *\file menu.h
+ *\brief Déclaration des fonctions du menu.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
- *\date 31 décembre 2020
+ *\date 3 janvier 2020
 */
 
 #ifndef MENU_H
@@ -17,6 +17,15 @@
 #include "affichage.h"
 #include "level.h"
 
-void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *event, SDL_Window *window, game_t *game,  bool * jeu_en_cours);
+/**
+ *\brief La fonction initialise le menu.
+ *\param renderer L'écran.
+ *\param ressources Les ressources.
+ *\param event Les évenements.
+ *\param window La fenètre de jeu.
+ *\param game Le jeu.
+ *\param jeu_en_cours Si le jeu est en cours.
+*/
+void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *event, SDL_Window *window, game_t *game, bool *jeu_en_cours);
 
 #endif

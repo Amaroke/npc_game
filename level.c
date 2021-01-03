@@ -1,8 +1,8 @@
 /**
- *\file joueur.c
- *\brief Définition du joueur.
+ *\file level.c
+ *\brief Définition des fonctions niveaux.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
- *\date 2 novembre 2020
+ *\date 3 janvier 2020
 */
 
 #include "level.h"

@@ -27,7 +27,6 @@ void movement_player(SDL_Event *event, game_t *game, SDL_Window *window)
         }
         int index = (game->player->frame * game->player->frames) / game->player->animation_speed;
         game->player->current_frame = fmin(index, game->player->frames - 1);
-
         if (event->type == SDL_KEYDOWN)
         {
             if (event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d)
@@ -124,22 +123,18 @@ int choix_menu(SDL_Event *event, SDL_Window *window, game_t *game)
         }
         if (event->type == SDL_KEYDOWN)
         {
-
             if (event->key.keysym.sym == SDLK_0 || event->key.keysym.sym == SDLK_KP_0)
             {
                 return 0;
             }
-
             if (event->key.keysym.sym == SDLK_1 || event->key.keysym.sym == SDLK_KP_1)
             {
                 return 1;
             }
-
             else if (event->key.keysym.sym == SDLK_2 || event->key.keysym.sym == SDLK_KP_2)
             {
                 return 2;
             }
-
             else if (event->key.keysym.sym == SDLK_3 || event->key.keysym.sym == SDLK_KP_3)
             {
                 return 3;
@@ -163,7 +158,6 @@ int choix_menu(SDL_Event *event, SDL_Window *window, game_t *game)
             }
         }
     }
-
     return 5;
 }
 
@@ -182,12 +176,10 @@ level_t choisir_level(SDL_Event *event, SDL_Window *window, game_t *game)
             {
                 return LEVEL_1;
             }
-
             else if (event->key.keysym.sym == SDLK_2 || event->key.keysym.sym == SDLK_KP_2)
             {
                 return LEVEL_2;
             }
-
             else if (event->key.keysym.sym == SDLK_3 || event->key.keysym.sym == SDLK_KP_3)
             {
                 return LEVEL_3;
@@ -232,6 +224,5 @@ level_t choisir_level(SDL_Event *event, SDL_Window *window, game_t *game)
             }
         }
     }
-
     return CHOIX;
 }

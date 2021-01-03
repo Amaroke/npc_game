@@ -30,7 +30,6 @@ bool sprite_collide(sprite_t *player, sprite_t *sprite)
     return false;
 }
 
-
 sprite_t *copy_sprite(sprite_t *sprite)
 {
     sprite_t *copy = malloc(sizeof(sprite_t));

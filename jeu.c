@@ -31,7 +31,6 @@ void init_data(game_t *game)
 
 void update_data(game_t *game)
 {
-
     game->vortex->current_frame++;
     if (game->vortex->current_frame == NB_ANIMATIONS_VORTEX * 5)
     {
@@ -105,7 +104,6 @@ void update_data(game_t *game)
         }
     }
     apply_block_effect(game->player, game->block);
-    printf("%i, %i\n", game->player->sprite.x, game->player->sprite.y);
 }
 
 void clean_data(game_t *game)

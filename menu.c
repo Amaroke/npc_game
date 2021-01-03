@@ -1,8 +1,8 @@
 /**
- *\file joueur.c
- *\brief Définition du joueur.
+ *\file menu.c
+ *\brief Définition des fonctions du menu.
  *\author MOSELLE Marie-Luc & MATHIEU STEINBACH Hugo
- *\date 2 novembre 2020
+ *\date 3 janvier 2020
 */
 
 #include "menu.h"
@@ -48,9 +48,9 @@ void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *even
             str = "3 : Level 3 - Premiers ennemis";
             apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) - 200, 410, TITLE_WIDTH / 2 + 100, TITLE_HEIGHT / 2, str, ressources.font, 255, 160, 50);
             str = "Level 4 - Niveau - simple : 4";
-            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 210, TITLE_WIDTH / 2+100, TITLE_HEIGHT / 2, str, ressources.font, 255, 100, 255);
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 210, TITLE_WIDTH / 2 + 100, TITLE_HEIGHT / 2, str, ressources.font, 255, 100, 255);
             str = "Level 5 - Niveau + dur : 5";
-            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 310, TITLE_WIDTH / 2+100, TITLE_HEIGHT / 2, str, ressources.font, 255, 50, 50);
+            apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 310, TITLE_WIDTH / 2 + 100, TITLE_HEIGHT / 2, str, ressources.font, 255, 50, 50);
             str = "Level 6 - Hardmode : 6";
             apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 365, 410, TITLE_WIDTH / 2 + 100, TITLE_HEIGHT / 2, str, ressources.font, 255, 0, 0);
             update_screen(renderer);

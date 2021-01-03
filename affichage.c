@@ -50,14 +50,11 @@ void refresh_graphics(SDL_Renderer *renderer, game_t *game, ressources_t *ressou
                 case 3:
                     apply_sprite(renderer, ressources->black_enemy, &game->enemy[i]->sprite, game->enemy[i]->animation[game->enemy[i]->orientation], game->enemy[i]->sprite.x, game->enemy[i]->sprite.y);
                     break;
-
                 default:
                     break;
                 }
-               
             }
         }
-
         apply_text(renderer, 5, 5, 100, 25, str, ressources->font, 255, 255, 255);
         update_screen(renderer);
     }

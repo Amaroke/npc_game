@@ -145,7 +145,6 @@ void test_affichage_bloc()
         }
         pause(10);
     }
-
     clean(window, renderer, &ressources, &game);
     printf("Test d'affichage réussi !\n");
 }
@@ -218,8 +217,8 @@ void test_collision()
     SDL_Event event;
     init(&window, &renderer, &ressources, &game);
     init_data(&game);
-     init_player(game.player, 50, 50);
-     init_vortex(game.vortex, 100,100);
+    init_player(game.player, 50, 50);
+    init_vortex(game.vortex, 100, 100);
     printf("Cliquer sur la croix pour fermer la fenêtre\n");
     int_to_block(game.block, txt_to_int("ressources/levels/test_collisions.txt"));
     while (!game.gameover) //Tant que le jeu n'est pas fini.
@@ -242,7 +241,6 @@ int main(void)
         printf(">>> ");
         scanf("%i", &choix);
         getchar();
-
         switch (choix)
         {
         case 0:

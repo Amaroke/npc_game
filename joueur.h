@@ -8,8 +8,6 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
 
-//Constantes
-
 #define MOVING_STEP 1
 #define ORIENTATION_DOWN 0
 #define ORIENTATION_RIGHT 4
@@ -32,7 +30,7 @@ typedef struct player_s
     int frames;             /*!<Le nombre de sprites que compose une animation complète.*/
     int frame;              /*!<Le calcul de la frame suivante.*/
     bool is_moving;         /*!<Le joueur se déplace-t-il ?*/
-    int health_point;     /*!<Les points de vie du joueur*/
+    int health_point;       /*!<Les points de vie du joueur*/
 } player_t;
 
 /**
@@ -40,6 +38,5 @@ typedef struct player_s
  *\param player Le player à initialiser.
 */
 void init_player(player_t *player, int x, int y);
-
 
 #endif

@@ -25,9 +25,16 @@ typedef struct vortex_s
 /**
  *\brief La fonction initialise le vortex.
  *\param vortex Le vortex à initialiser.
+ *\param x Abscisse où l'initialiser.
+ *\param y Ordonné où l'initialiser.
 */
 void init_vortex(vortex_t *vortex, int x, int y);
 
+/**
+ *\brief La collision du joueur avec le vortex.
+ *\param vortex Le vortex.
+ *\param player Le joueur.
+*/
 bool vortex_collide(vortex_t *vortex, sprite_t *player);
 
 #endif
