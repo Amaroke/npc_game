@@ -26,7 +26,7 @@ void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *even
             clear_renderer(renderer);
             str = "NPC Game";
             apply_text(renderer, SCREEN_WIDTH / 2 - TITLE_WIDTH / 2, 75, TITLE_WIDTH, TITLE_HEIGHT + 50, str, ressources.font, 255, 255, 255);
-            str = "1 : Choisir un level";
+            str = "1 : Choisir un niveau";
             apply_text(renderer, SCREEN_WIDTH / 2 - TITLE_WIDTH / 2, 250, TITLE_WIDTH, TITLE_HEIGHT, str, ressources.font, 0, 255, 0);
             str = "2 : Comment jouer";
             apply_text(renderer, SCREEN_WIDTH / 2 - TITLE_WIDTH / 2, 350, TITLE_WIDTH, TITLE_HEIGHT, str, ressources.font, 0, 0, 255);
@@ -37,7 +37,7 @@ void start_menu(SDL_Renderer *renderer, ressources_t ressources, SDL_Event *even
             break;
         case 1:
             clear_renderer(renderer);
-            str = "Choix Level";
+            str = "Choix Niveau";
             apply_text(renderer, SCREEN_WIDTH / 2 - TITLE_WIDTH / 2, 50, TITLE_WIDTH, TITLE_HEIGHT + 50, str, ressources.font, 255, 255, 255);
             str = "0 : Retour";
             apply_text(renderer, (SCREEN_WIDTH / 2 - TITLE_WIDTH / 2) + 100, 475, TITLE_WIDTH - 200, TITLE_HEIGHT, str, ressources.font, 0, 0, 255);

@@ -16,7 +16,7 @@
 #define ORIENTATION_UP 8
 #define ORIENTATION_LEFT 12
 #define NB_ANIMATIONS 4
-#define HP_MAX 300
+#define HP_MAX 1000
 
 #include <SDL2/SDL.h>
 #include "sprite.h"

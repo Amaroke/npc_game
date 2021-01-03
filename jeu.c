@@ -52,7 +52,10 @@ void update_data(game_t *game)
         if (game->enemy[i]->sprite.is_visible)
         {
             sprite_t *copy = copy_sprite(&game->enemy[i]->sprite);
-
+            if(sprite_collide(&game->player->sprite, &game->enemy[i]->sprite))
+            {
+                game->player->health_point--;
+            }
             switch (game->enemy[i]->orientation / 4)
             {
 
@@ -88,6 +91,7 @@ void update_data(game_t *game)
                 game->enemy[i]->sprite.y = copy->y;
                 game->enemy[i]->movement--;
             }
+
         }
     }
     if (game->player->health_point <= 0)
@@ -101,6 +105,7 @@ void update_data(game_t *game)
         }
     }
     apply_block_effect(game->player, game->block);
+    printf("%i, %i\n", game->player->sprite.x, game->player->sprite.y);
 }
 
 void clean_data(game_t *game)
